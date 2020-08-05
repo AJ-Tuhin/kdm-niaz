@@ -29,6 +29,7 @@ namespace KDM.Models
         public HttpPostedFileBase Photo { get; set; }
 
 
+
     }
     
 }
