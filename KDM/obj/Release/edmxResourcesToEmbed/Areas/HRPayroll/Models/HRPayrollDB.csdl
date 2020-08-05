@@ -1,0 +1,1328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_erpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="MappedID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="hr_liv_adv_data_advance_sanction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SanctionAmount" Type="Int32" Nullable="false" />
+    <Property Name="AdvanceAmount" Type="Int32" Nullable="false" />
+    <Property Name="SanctionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="InstallmentSize" Type="Int32" Nullable="false" />
+    <Property Name="Frequency" Type="Int32" Nullable="false" />
+    <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="OutstandingAmount" Type="Int32" Nullable="false" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdvanceNo" Type="Int32" Nullable="false" />
+    <Property Name="PostingDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="hr_liv_adv_data_employee_advance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Advance" Type="Int32" Nullable="false" />
+    <Property Name="Installment" Type="Int32" Nullable="false" />
+    <Property Name="OutstandingAmount" Type="Int32" Nullable="false" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdvanceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_adv_data_monthly_advance_deduction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Advance" Type="Int32" />
+    <Property Name="Installment" Type="Int32" />
+    <Property Name="SalaryAdvDeduct" Type="Int32" />
+    <Property Name="Outstanding" Type="Int32" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_all_conf_salary_allowance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesigCode" Type="Int32" />
+    <Property Name="HouseRentRate" Type="Int32" Nullable="false" />
+    <Property Name="Medical" Type="Int32" Nullable="false" />
+    <Property Name="Food" Type="Int32" Nullable="false" />
+    <Property Name="Transport" Type="Int32" Nullable="false" />
+    <Property Name="AttendeceBonus" Type="Int32" Nullable="false" />
+    <Property Name="PFPercentage" Type="Double" Nullable="false" />
+    <Property Name="EidBonusNoBasic" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="PostingDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Stamp" Type="Int32" Nullable="false" />
+    <Property Name="InputerID" Type="Int32" Nullable="false" />
+    <Property Name="AutorizerID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_att_data_daily_attendance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="AttenDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="InTime" Type="DateTime" Precision="3" />
+    <Property Name="OutTime" Type="DateTime" Precision="3" />
+    <Property Name="OfficeHour" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="OverTime" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="AttenStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LeaveCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InputType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MonthProcessMark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_att_data_monthly_attendance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MonthFrom" Type="DateTime" Precision="0" />
+    <Property Name="MonthTo" Type="DateTime" Precision="0" />
+    <Property Name="MonthDay" Type="Int32" />
+    <Property Name="MonthWorkDay" Type="Int32" />
+    <Property Name="Holiday" Type="Int32" />
+    <Property Name="FriDay" Type="Int32" />
+    <Property Name="PresentDay" Type="Int32" />
+    <Property Name="LateDay" Type="Int32" />
+    <Property Name="AbsentDay" Type="Int32" />
+    <Property Name="LeaveDay" Type="Int32" />
+    <Property Name="CL" Type="Int32" />
+    <Property Name="EL" Type="Int32" />
+    <Property Name="ML" Type="Int32" />
+    <Property Name="SL" Type="Int32" />
+    <Property Name="NP" Type="Int32" />
+    <Property Name="OverTimeHour" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="OTAccHour" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ProdAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessMonthCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_attn_conf_attendance_type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_basic_data_all_employee_basic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesigCode" Type="Int32" />
+    <Property Name="CurBasic" Type="Int32" Nullable="false" />
+    <Property Name="OtherlAmount" Type="Int32" />
+    <Property Name="LastUpdateDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_com_data_employee_complain">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComplainType" Type="Int32" />
+    <Property Name="ComplianDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ComplainDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="Vacantdate" Type="DateTime" Precision="0" />
+    <Property Name="ComplainStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_des_conf_employee_designation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesigCode" Type="Int32" />
+    <Property Name="DesigName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="EmpGroup" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_emp_data_master_complain">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Complain" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="hr_liv_emp_data_master_employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameBangla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PresentAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PermanantAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Desigcode" Type="Int32" />
+    <Property Name="EmpGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShiftCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OverTimeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MaxOvertime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmpStatus" Type="Int32" Nullable="false" />
+    <Property Name="Roster" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+    <Property Name="ReJoin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Bithdate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentAge" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BasicSalary" Type="Int32" Nullable="false" />
+    <Property Name="JobGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LeavingDate" Type="DateTime" Precision="3" />
+    <Property Name="ImageLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Spouse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Confirmdate" Type="DateTime" Precision="3" />
+    <Property Name="Children" Type="Int32" />
+    <Property Name="LastDegree" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EducationCode" Type="Int32" />
+    <Property Name="PerThana" Type="Int32" />
+    <Property Name="PerDistrict" Type="Int32" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ReferenceCode" Type="Int32" />
+    <Property Name="ReferenceName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="RefernceMobile" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="TrainingCode" Type="Int32" />
+    <Property Name="ExperienceCode" Type="Int32" />
+    <Property Name="LastIncrementDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="hr_liv_emp_data_master_payroll">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpStatus" Type="Int32" Nullable="false" />
+    <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SalaryStartPeriod" Type="DateTime" Precision="0" />
+    <Property Name="SalaryEndPeriod" Type="DateTime" Precision="0" />
+    <Property Name="Paymentdate" Type="DateTime" Precision="0" />
+    <Property Name="BasicSalary" Type="Int32" Nullable="false" />
+    <Property Name="HouseRent" Type="Int32" />
+    <Property Name="Medical" Type="Int32" />
+    <Property Name="Food" Type="Int32" />
+    <Property Name="MobileBill" Type="Int32" />
+    <Property Name="AttendBonus" Type="Int32" />
+    <Property Name="Transport" Type="Int32" />
+    <Property Name="OtherAllowance" Type="Int32" />
+    <Property Name="OverTime" Type="Int32" />
+    <Property Name="EidBonus" Type="Int32" />
+    <Property Name="Incentives" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="GrossSalary" Type="Int32" Nullable="false" />
+    <Property Name="DaysInMonth" Type="Int32" />
+    <Property Name="MonthWorkDay" Type="Int32" />
+    <Property Name="HoliDay" Type="Int32" />
+    <Property Name="Friday" Type="Int32" />
+    <Property Name="PresentDay" Type="Int32" />
+    <Property Name="LateDay" Type="Int32" />
+    <Property Name="Attendays" Type="Int32" />
+    <Property Name="TotalLeaveDays" Type="Int32" />
+    <Property Name="CLdays" Type="Int32" />
+    <Property Name="MLDays" Type="Int32" />
+    <Property Name="ELDays" Type="Int32" />
+    <Property Name="SLDays" Type="Int32" />
+    <Property Name="Adays" Type="Int32" />
+    <Property Name="PerDaysAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AbsentAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="GrossSalaryAct" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ProvidentDeduct" Type="Int32" />
+    <Property Name="Advance" Type="Int32" />
+    <Property Name="OtherDeduct" Type="Int32" />
+    <Property Name="TotalDeduct" Type="Int32" />
+    <Property Name="OTHour" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="OTHourRate" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="TargetBonus" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="Arears" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="OTAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Stamp" Type="Int32" />
+    <Property Name="Grandtotal" Type="Int32" Nullable="false" />
+    <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="TotalPFAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PostingDate" Type="Int32" />
+    <Property Name="InputerID" Type="Int32" />
+    <Property Name="AuthorizerID" Type="Int32" />
+    <Property Name="SalaryProCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_fsm_data_master_final_settlement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="AutoPosting" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="hr_liv_hol_data_holyday_marking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Holiday" Type="DateTime" Precision="0" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_inc_data_emp_incement_due_list">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastIncYear" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="IncStatus" Type="Int32" Nullable="false" />
+    <Property Name="EmpJobStatus" Type="Int32" Nullable="false" />
+    <Property Name="IncrDueDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IncEffectedDate" Type="DateTime" Precision="0" />
+    <Property Name="DProcessDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="hr_liv_inc_data_emp_wise_increment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="IncrementCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PreviosDesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurDesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IncrementDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IncrPercent" Type="Int32" Nullable="false" />
+    <Property Name="PreBasicSalary" Type="Int32" Nullable="false" />
+    <Property Name="IncAmount" Type="Int32" />
+    <Property Name="CurBasicSalary" Type="Int32" Nullable="false" />
+    <Property Name="LastIncYear" Type="Int32" Nullable="false" />
+    <Property Name="CurIncYear" Type="Int32" Nullable="false" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_lev_conf_leave_type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LeaveName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_lev_conf_total_leave">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LeaveName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="TotalLeave" Type="Int32" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_lev_data_all_leave">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LeaveCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LeaveDays" Type="Int32" Nullable="false" />
+    <Property Name="LeaveFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LeaveTo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ApproveDate" Type="DateTime" Precision="0" />
+    <Property Name="PostingDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="InputerID" Type="Int32" Nullable="false" />
+    <Property Name="ChangeID" Type="Int32" />
+    <Property Name="AuthorizerID" Type="Int32" />
+    <Property Name="AutoPosting" Type="DateTime" Precision="3" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="LeaveMarkToAtten" Type="Int32" />
+    <Property Name="MarkDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="hr_liv_lev_data_emp_earned_leave">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="DaysCount" Type="Int32" />
+    <Property Name="EarnedLeave" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_lev_data_master_leave">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LeaveCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LeaveUsed" Type="Int32" />
+    <Property Name="LeaveRemain" Type="Int32" />
+    <Property Name="LastLeavetaken" Type="DateTime" Precision="0" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_lev_data_master_leave_balance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveCode" Type="Int32" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartLeaveBalance" Type="Int32" />
+    <Property Name="CurrentYear" Type="Int32" />
+    <Property Name="LastLeaveBalance" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_pay_conf_desig_wise_atten_bonus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesigCode" Type="Int32" Nullable="false" />
+    <Property Name="AttenBonus" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_pay_data_payment_transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+    <Property Name="PaymentBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymenttakenBy" Type="Int32" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_pf_data_emp_wise_pf_transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PfAmount" Type="Int32" />
+    <Property Name="PfBalance" Type="Int32" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PfStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_pf_data_master_pf_balance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalPfAmount" Type="Int32" />
+    <Property Name="LastPostingDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_pro_data_daily_process">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="ProcessDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ProcessTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="ProcessStatus" Type="Int32" Nullable="false" />
+    <Property Name="ProcessBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_pro_data_function_update_daily_process_data">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProcessDate" Type="DateTime" Precision="0" />
+    <Property Name="update_attendance" Type="Int32" />
+    <Property Name="update_emp_working_day" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_pro_data_master_profile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="DesigCode" Type="Int32" />
+    <Property Name="EmpGroup" Type="Int32" />
+    <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PresentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JoiningDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurBasic" Type="Int32" />
+    <Property Name="AttnBonus" Type="Int32" />
+    <Property Name="OtherAmount" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="TerNotification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_pro_data_monthly_process">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="ProcessMonth" Type="Int32" Nullable="false" />
+    <Property Name="ProcessStatus" Type="Int32" Nullable="false" />
+    <Property Name="ProcessDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ProcessTime" Type="Time" Precision="7" />
+    <Property Name="ProcessBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_pro_data_yearly_process">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="ProcessYear" Type="Int32" Nullable="false" />
+    <Property Name="ProcessStatus" Type="Int32" Nullable="false" />
+    <Property Name="ProcessDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ProcessTime" Type="Time" Precision="7" />
+    <Property Name="ProcessBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_set_conf_provident_contribution">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoFromDay" Type="Int32" />
+    <Property Name="NoToDay" Type="Int32" />
+    <Property Name="ContributionPercent" Type="Double" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_liv_set_data_all_emp_termination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NoticeDate" Type="DateTime" Precision="0" />
+    <Property Name="NoticeAppDate" Type="DateTime" Precision="0" />
+    <Property Name="TerminationDate" Type="DateTime" Precision="0" />
+    <Property Name="NoticeToTerDays" Type="Int32" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="AutoPosting" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="TerminationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_set_data_employee_settelement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PfAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SalaryComAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PfComCont" Type="Double" />
+    <Property Name="PfComConAmount" Type="Int32" />
+    <Property Name="EmpStatus" Type="Int32" />
+    <Property Name="SettelementDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_sft_conf_shift_time">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShiftCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="LateTimeStart" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+    <Property Name="LaunchStart" Type="Time" Precision="7" />
+    <Property Name="LaunchEnd" Type="Time" Precision="7" />
+    <Property Name="Designation" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_sta_conf_emp_status_type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusType" Type="Int32" Nullable="false" />
+    <Property Name="Status_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Uses" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_ter_data_master_termination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TerminationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SettelementDone" Type="Int32" />
+    <Property Name="SettelementPending" Type="Int32" />
+    <Property Name="SettelementAmount" Type="Int32" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="TerminateDate" Type="DateTime" Precision="0" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_liv_work_data_emp_wise_life_time">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="LastTotalLifeDays" Type="Int32" Nullable="false" />
+    <Property Name="LastTotalYearDays" Type="Int32" Nullable="false" />
+    <Property Name="ThisMonthdays" Type="Int32" Nullable="false" />
+    <Property Name="CurrentTotalLifeDays" Type="Int32" Nullable="false" />
+    <Property Name="CurrentTotalYearDays" Type="Int32" Nullable="false" />
+    <Property Name="MonthEndNo" Type="Int32" Nullable="false" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="hr_liv_work_data_monthly_emp_working">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesigCode" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="WorkingDays" Type="Int32" />
+    <Property Name="PresentDays" Type="Int32" />
+    <Property Name="AbsentDays" Type="Int32" />
+    <Property Name="Latedays" Type="Int32" />
+    <Property Name="LeaveDays" Type="Int32" />
+    <Property Name="GovHoliDays" Type="Int32" />
+    <Property Name="EidHoliDays" Type="Int32" />
+    <Property Name="TotalHoliDays" Type="Int32" />
+    <Property Name="Extradays" Type="Int32" />
+    <Property Name="FriDays" Type="Int32" />
+    <Property Name="DaysinMonth" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hr_salary_payments">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="Month" />
+      <PropertyRef Name="Year" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Payment" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="EntryBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_actions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StreetNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PoliceStation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="House_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_address_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InOut" Type="Boolean" />
+    <Property Name="SwipeNo" Type="Int32" />
+    <Property Name="ProcessedStatus" Type="Int32" Nullable="false" />
+    <Property Name="AttnDate" Type="DateTime" Precision="0" />
+    <Property Name="ProcessDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tbl_attendance_devices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceId" Type="Int32" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Port" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_children">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChildName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ChildAge" Type="Int32" />
+    <Property Name="ChildEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_city">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_company">
+    <Key>
+      <PropertyRef Name="CompanyCode" />
+    </Key>
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_config">
+    <Key>
+      <PropertyRef Name="cnfg_id" />
+    </Key>
+    <Property Name="cnfg_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cnfg_app" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail_pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_app_user_default_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_area" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_controller" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_action" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_contact_person">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_controllers">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_departments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptNameBN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_designation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DesigName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DesigNameBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AttnBonus" Type="Int32" Nullable="false" />
+    <Property Name="EmgGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="holiday_allowance" Type="Int32" />
+    <Property Name="DeptGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_device_data_history">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AttnDate" Type="DateTime" Precision="3" />
+    <Property Name="mDate" Type="DateTime" Precision="0" />
+    <Property Name="mTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_district">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_division">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_education">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Exam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InstituteName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="BoardName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UniversityName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PassYear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Class" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CGPA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MaxCGPA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="GroupName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_employee_group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpGrpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_employee_status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpJobStatusCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpJobStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_employees">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FingerPrintID" Type="Int64" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoID" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FathersName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MothersName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dob" Type="DateTime" Precision="0" />
+    <Property Name="JoiningDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MaritialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateOfMarriage" Type="DateTime" Precision="3" />
+    <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HasChild" Type="Int32" Nullable="false" />
+    <Property Name="ReferenceEmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReligionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PFDeduct" Type="Boolean" Nullable="false" />
+    <Property Name="Service_length" Type="Int32" Nullable="false" />
+    <Property Name="BasicSalary" Type="Int32" Nullable="false" />
+    <Property Name="HourlyRate" Type="Double" Nullable="false" />
+    <Property Name="PayTypeCode" Type="Int32" Nullable="false" />
+    <Property Name="EmpJobStatusCode" Type="Int32" Nullable="false" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="0" />
+    <Property Name="RetirementDate" Type="DateTime" Precision="0" />
+    <Property Name="OverTime" Type="Boolean" Nullable="false" />
+    <Property Name="InputterID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="LastIncYear" Type="Int32" Nullable="false" />
+    <Property Name="BanglaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResignDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tbl_exams">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_factory">
+    <Key>
+      <PropertyRef Name="FactoryCode" />
+    </Key>
+    <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FactoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="file_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_details" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_ref_id" Type="Int64" />
+    <Property Name="file_ref_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_job_details">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PromotionDate" Type="DateTime" Precision="3" />
+    <Property Name="PreviousDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PreviousDesignationStartDate" Type="DateTime" Precision="3" />
+    <Property Name="PreviousDesignationEndDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_job_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_joining_details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BasicSalary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Shift" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProbitionPeriodStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ProbitionPeriodEndDate" Type="DateTime" Precision="3" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Passport_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccount_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ResignationDate" Type="DateTime" Precision="3" />
+    <Property Name="ResignationReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_log_house_rent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Hrent" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_modules">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_notification">
+    <Key>
+      <PropertyRef Name="notf_id" />
+    </Key>
+    <Property Name="notf_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="notf_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_ref" Type="Int64" />
+    <Property Name="notf_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to_email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_read_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_pay_type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PayTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PayTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_phone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_phone_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_police_station">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_religions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReligionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReligionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_sections">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_test">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_training">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="InstituteName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingCountry" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingDuration" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_training_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_user_defaults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RoleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="HRPayrollDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="hr_liv_adv_data_advance_sanction" EntityType="Self.hr_liv_adv_data_advance_sanction" />
+    <EntitySet Name="hr_liv_adv_data_employee_advance" EntityType="Self.hr_liv_adv_data_employee_advance" />
+    <EntitySet Name="hr_liv_adv_data_monthly_advance_deduction" EntityType="Self.hr_liv_adv_data_monthly_advance_deduction" />
+    <EntitySet Name="hr_liv_all_conf_salary_allowance" EntityType="Self.hr_liv_all_conf_salary_allowance" />
+    <EntitySet Name="hr_liv_att_data_daily_attendance" EntityType="Self.hr_liv_att_data_daily_attendance" />
+    <EntitySet Name="hr_liv_att_data_monthly_attendance" EntityType="Self.hr_liv_att_data_monthly_attendance" />
+    <EntitySet Name="hr_liv_attn_conf_attendance_type" EntityType="Self.hr_liv_attn_conf_attendance_type" />
+    <EntitySet Name="hr_liv_basic_data_all_employee_basic" EntityType="Self.hr_liv_basic_data_all_employee_basic" />
+    <EntitySet Name="hr_liv_com_data_employee_complain" EntityType="Self.hr_liv_com_data_employee_complain" />
+    <EntitySet Name="hr_liv_des_conf_employee_designation" EntityType="Self.hr_liv_des_conf_employee_designation" />
+    <EntitySet Name="hr_liv_emp_data_master_complain" EntityType="Self.hr_liv_emp_data_master_complain" />
+    <EntitySet Name="hr_liv_emp_data_master_employee" EntityType="Self.hr_liv_emp_data_master_employee" />
+    <EntitySet Name="hr_liv_emp_data_master_payroll" EntityType="Self.hr_liv_emp_data_master_payroll" />
+    <EntitySet Name="hr_liv_fsm_data_master_final_settlement" EntityType="Self.hr_liv_fsm_data_master_final_settlement" />
+    <EntitySet Name="hr_liv_hol_data_holyday_marking" EntityType="Self.hr_liv_hol_data_holyday_marking" />
+    <EntitySet Name="hr_liv_inc_data_emp_incement_due_list" EntityType="Self.hr_liv_inc_data_emp_incement_due_list" />
+    <EntitySet Name="hr_liv_inc_data_emp_wise_increment" EntityType="Self.hr_liv_inc_data_emp_wise_increment" />
+    <EntitySet Name="hr_liv_lev_conf_leave_type" EntityType="Self.hr_liv_lev_conf_leave_type" />
+    <EntitySet Name="hr_liv_lev_conf_total_leave" EntityType="Self.hr_liv_lev_conf_total_leave" />
+    <EntitySet Name="hr_liv_lev_data_all_leave" EntityType="Self.hr_liv_lev_data_all_leave" />
+    <EntitySet Name="hr_liv_lev_data_emp_earned_leave" EntityType="Self.hr_liv_lev_data_emp_earned_leave" />
+    <EntitySet Name="hr_liv_lev_data_master_leave" EntityType="Self.hr_liv_lev_data_master_leave" />
+    <EntitySet Name="hr_liv_lev_data_master_leave_balance" EntityType="Self.hr_liv_lev_data_master_leave_balance" />
+    <EntitySet Name="hr_liv_pay_conf_desig_wise_atten_bonus" EntityType="Self.hr_liv_pay_conf_desig_wise_atten_bonus" />
+    <EntitySet Name="hr_liv_pay_data_payment_transaction" EntityType="Self.hr_liv_pay_data_payment_transaction" />
+    <EntitySet Name="hr_liv_pf_data_emp_wise_pf_transaction" EntityType="Self.hr_liv_pf_data_emp_wise_pf_transaction" />
+    <EntitySet Name="hr_liv_pf_data_master_pf_balance" EntityType="Self.hr_liv_pf_data_master_pf_balance" />
+    <EntitySet Name="hr_liv_pro_data_daily_process" EntityType="Self.hr_liv_pro_data_daily_process" />
+    <EntitySet Name="hr_liv_pro_data_function_update_daily_process_data" EntityType="Self.hr_liv_pro_data_function_update_daily_process_data" />
+    <EntitySet Name="hr_liv_pro_data_master_profile" EntityType="Self.hr_liv_pro_data_master_profile" />
+    <EntitySet Name="hr_liv_pro_data_monthly_process" EntityType="Self.hr_liv_pro_data_monthly_process" />
+    <EntitySet Name="hr_liv_pro_data_yearly_process" EntityType="Self.hr_liv_pro_data_yearly_process" />
+    <EntitySet Name="hr_liv_set_conf_provident_contribution" EntityType="Self.hr_liv_set_conf_provident_contribution" />
+    <EntitySet Name="hr_liv_set_data_all_emp_termination" EntityType="Self.hr_liv_set_data_all_emp_termination" />
+    <EntitySet Name="hr_liv_set_data_employee_settelement" EntityType="Self.hr_liv_set_data_employee_settelement" />
+    <EntitySet Name="hr_liv_sft_conf_shift_time" EntityType="Self.hr_liv_sft_conf_shift_time" />
+    <EntitySet Name="hr_liv_sta_conf_emp_status_type" EntityType="Self.hr_liv_sta_conf_emp_status_type" />
+    <EntitySet Name="hr_liv_ter_data_master_termination" EntityType="Self.hr_liv_ter_data_master_termination" />
+    <EntitySet Name="hr_liv_work_data_emp_wise_life_time" EntityType="Self.hr_liv_work_data_emp_wise_life_time" />
+    <EntitySet Name="hr_liv_work_data_monthly_emp_working" EntityType="Self.hr_liv_work_data_monthly_emp_working" />
+    <EntitySet Name="hr_salary_payments" EntityType="Self.hr_salary_payments" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_actions" EntityType="Self.tbl_actions" />
+    <EntitySet Name="tbl_address" EntityType="Self.tbl_address" />
+    <EntitySet Name="tbl_address_types" EntityType="Self.tbl_address_types" />
+    <EntitySet Name="tbl_attendance" EntityType="Self.tbl_attendance" />
+    <EntitySet Name="tbl_attendance_devices" EntityType="Self.tbl_attendance_devices" />
+    <EntitySet Name="tbl_children" EntityType="Self.tbl_children" />
+    <EntitySet Name="tbl_city" EntityType="Self.tbl_city" />
+    <EntitySet Name="tbl_company" EntityType="Self.tbl_company" />
+    <EntitySet Name="tbl_config" EntityType="Self.tbl_config" />
+    <EntitySet Name="tbl_contact_person" EntityType="Self.tbl_contact_person" />
+    <EntitySet Name="tbl_controllers" EntityType="Self.tbl_controllers" />
+    <EntitySet Name="tbl_country" EntityType="Self.tbl_country" />
+    <EntitySet Name="tbl_departments" EntityType="Self.tbl_departments" />
+    <EntitySet Name="tbl_designation" EntityType="Self.tbl_designation" />
+    <EntitySet Name="tbl_device_data_history" EntityType="Self.tbl_device_data_history" />
+    <EntitySet Name="tbl_district" EntityType="Self.tbl_district" />
+    <EntitySet Name="tbl_division" EntityType="Self.tbl_division" />
+    <EntitySet Name="tbl_education" EntityType="Self.tbl_education" />
+    <EntitySet Name="tbl_employee_group" EntityType="Self.tbl_employee_group" />
+    <EntitySet Name="tbl_employee_status" EntityType="Self.tbl_employee_status" />
+    <EntitySet Name="tbl_employees" EntityType="Self.tbl_employees" />
+    <EntitySet Name="tbl_exams" EntityType="Self.tbl_exams" />
+    <EntitySet Name="tbl_factory" EntityType="Self.tbl_factory" />
+    <EntitySet Name="tbl_file" EntityType="Self.tbl_file" />
+    <EntitySet Name="tbl_job_details" EntityType="Self.tbl_job_details" />
+    <EntitySet Name="tbl_job_status" EntityType="Self.tbl_job_status" />
+    <EntitySet Name="tbl_joining_details" EntityType="Self.tbl_joining_details" />
+    <EntitySet Name="tbl_log_house_rent" EntityType="Self.tbl_log_house_rent" />
+    <EntitySet Name="tbl_modules" EntityType="Self.tbl_modules" />
+    <EntitySet Name="tbl_notification" EntityType="Self.tbl_notification" />
+    <EntitySet Name="tbl_pay_type" EntityType="Self.tbl_pay_type" />
+    <EntitySet Name="tbl_phone" EntityType="Self.tbl_phone" />
+    <EntitySet Name="tbl_phone_types" EntityType="Self.tbl_phone_types" />
+    <EntitySet Name="tbl_police_station" EntityType="Self.tbl_police_station" />
+    <EntitySet Name="tbl_religions" EntityType="Self.tbl_religions" />
+    <EntitySet Name="tbl_sections" EntityType="Self.tbl_sections" />
+    <EntitySet Name="tbl_test" EntityType="Self.tbl_test" />
+    <EntitySet Name="tbl_training" EntityType="Self.tbl_training" />
+    <EntitySet Name="tbl_training_status" EntityType="Self.tbl_training_status" />
+    <EntitySet Name="tbl_user_defaults" EntityType="Self.tbl_user_defaults" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

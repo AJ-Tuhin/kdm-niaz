@@ -1,0 +1,1731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KDMDBMODEL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hr_liv_hol_data_holyday_marking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Holiday" Type="date" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="InputerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuthorizerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="InputStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_actions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Controller" Type="varchar" MaxLength="100" />
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+          <Property Name="AddressType" Type="varchar" MaxLength="50" />
+          <Property Name="Division" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="StreetNo" Type="varchar" MaxLength="20" />
+          <Property Name="District" Type="varchar" MaxLength="100" />
+          <Property Name="PoliceStation" Type="varchar" MaxLength="100" />
+          <Property Name="PostOffice" Type="varchar" MaxLength="100" />
+          <Property Name="PostCode" Type="varchar" MaxLength="20" />
+          <Property Name="House#" Type="varchar" MaxLength="20" />
+          <Property Name="Country" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_address_types">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_attendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="InOut" Type="bit" />
+          <Property Name="SwipeNo" Type="int" />
+          <Property Name="ProcessedStatus" Type="int" Nullable="false" />
+          <Property Name="AttnDate" Type="date" />
+          <Property Name="ProcessDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_attendance_devices">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceId" Type="int" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Port" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_children">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+          <Property Name="ChildName" Type="varchar" MaxLength="150" />
+          <Property Name="ChildAge" Type="int" />
+          <Property Name="ChildEducation" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_city">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_company">
+          <Key>
+            <PropertyRef Name="CompanyCode" />
+          </Key>
+          <Property Name="CompanyCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompanyAddress" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_config">
+          <Key>
+            <PropertyRef Name="cnfg_id" />
+          </Key>
+          <Property Name="cnfg_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cnfg_app" Type="varchar" MaxLength="50" />
+          <Property Name="cnfg_notification_mail" Type="varchar" MaxLength="100" />
+          <Property Name="cnfg_notification_mail_pass" Type="varchar" MaxLength="100" />
+          <Property Name="cnfg_app_user_default_pass" Type="varchar" MaxLength="50" />
+          <Property Name="cnfg_init_area" Type="varchar" MaxLength="500" />
+          <Property Name="cnfg_init_controller" Type="varchar" MaxLength="500" />
+          <Property Name="cnfg_init_action" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_contact_person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+          <Property Name="Relation" Type="varchar" MaxLength="50" />
+          <Property Name="PersonName" Type="varchar" MaxLength="150" />
+          <Property Name="Address1" Type="varchar" MaxLength="1500" />
+          <Property Name="Address2" Type="varchar" MaxLength="150" />
+          <Property Name="PhoneNumber1" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneNumber2" Type="varchar" MaxLength="20" />
+          <Property Name="EmailAddress1" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_controllers">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Module" Type="varchar" MaxLength="100" />
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_country">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_departments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeptCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeptName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DeptNameBN" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_designation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesigCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DesigName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DesigNameBN" Type="nvarchar" MaxLength="50" />
+          <Property Name="AttnBonus" Type="int" Nullable="false" />
+          <Property Name="EmgGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="holiday_allowance" Type="int" />
+          <Property Name="DeptGrade" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpType" Type="nvarchar" MaxLength="50" />
+          <Property Name="TiifinAllowance" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_device_data_history">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AttnDate" Type="datetime" />
+          <Property Name="mDate" Type="date" />
+          <Property Name="mTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_district">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_division">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_education">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+          <Property Name="Exam" Type="varchar" MaxLength="20" />
+          <Property Name="InstituteName" Type="varchar" MaxLength="150" />
+          <Property Name="BoardName" Type="varchar" MaxLength="150" />
+          <Property Name="UniversityName" Type="varchar" MaxLength="150" />
+          <Property Name="Duration" Type="varchar" MaxLength="50" />
+          <Property Name="PassYear" Type="varchar" MaxLength="4" />
+          <Property Name="Class" Type="varchar" MaxLength="1" />
+          <Property Name="CGPA" Type="varchar" MaxLength="5" />
+          <Property Name="MaxCGPA" Type="varchar" MaxLength="2" />
+          <Property Name="GroupName" Type="varchar" MaxLength="20" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tbl_employee_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpGrpCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmpGrpName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_employee_status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpJobStatusCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmpJobStatusName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CardID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FingerPrintID" Type="nvarchar" MaxLength="50" />
+          <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhotoID" Type="bigint" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BanglaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FathersName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FactoryCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeptCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmpGrpCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DesigCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubSection" Type="nvarchar" MaxLength="50" />
+          <Property Name="Shift" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MothersName" Type="nvarchar" MaxLength="100" />
+          <Property Name="NID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dob" Type="date" />
+          <Property Name="JoiningDate" Type="date" Nullable="false" />
+          <Property Name="MaritialStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateOfMarriage" Type="datetime" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="HasChild" Type="int" Nullable="false" />
+          <Property Name="ReferenceEmployeeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReligionCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PFDeduct" Type="bit" Nullable="false" />
+          <Property Name="Service_length" Type="int" Nullable="false" />
+          <Property Name="BasicSalary" Type="int" Nullable="false" />
+          <Property Name="GrossSalary" Type="int" />
+          <Property Name="AnyAllowances" Type="int" Nullable="false" />
+          <Property Name="HourlyRate" Type="float" Nullable="false" />
+          <Property Name="PayTypeCode" Type="int" Nullable="false" />
+          <Property Name="EmpJobStatusCode" Type="int" Nullable="false" />
+          <Property Name="ConfirmDate" Type="date" />
+          <Property Name="Transport" Type="bit" />
+          <Property Name="RetirementDate" Type="date" />
+          <Property Name="OverTime" Type="bit" Nullable="false" />
+          <Property Name="InputterID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuthorizerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="LastIncYear" Type="int" Nullable="false" />
+          <Property Name="ResignDate" Type="date" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="FingerTaken" Type="bit" />
+          <Property Name="InputStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_factory">
+          <Key>
+            <PropertyRef Name="FactoryCode" />
+          </Key>
+          <Property Name="FactoryCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FactoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_file">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="file_title" Type="varchar" MaxLength="100" />
+          <Property Name="file_type" Type="varchar" MaxLength="50" />
+          <Property Name="file_details" Type="varchar" MaxLength="500" />
+          <Property Name="file_url" Type="varchar" MaxLength="500" />
+          <Property Name="file_ref_id" Type="bigint" />
+          <Property Name="file_ref_type" Type="varchar" MaxLength="50" />
+          <Property Name="file_user_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_job_details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" />
+          <Property Name="PromotionDate" Type="datetime" />
+          <Property Name="PreviousDesignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrentDesignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="PreviousDesignationStartDate" Type="datetime" />
+          <Property Name="PreviousDesignationEndDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_job_status">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_joining_details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JoiningDate" Type="datetime" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="BasicSalary" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shift" Type="varchar" MaxLength="10" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="Section" Type="varchar" MaxLength="50" />
+          <Property Name="ProbitionPeriodStartDate" Type="datetime" />
+          <Property Name="ProbitionPeriodEndDate" Type="datetime" />
+          <Property Name="BankName" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccountName" Type="varchar" MaxLength="100" />
+          <Property Name="Passport#" Type="varchar" MaxLength="50" />
+          <Property Name="TIN" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccount#" Type="varchar" MaxLength="20" />
+          <Property Name="ResignationDate" Type="datetime" />
+          <Property Name="ResignationReason" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_members">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SponsorID" Type="bigint" />
+          <Property Name="SponsorName" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="int" />
+          <Property Name="DistributorName" Type="varchar" MaxLength="50" />
+          <Property Name="FathersName" Type="varchar" MaxLength="50" />
+          <Property Name="MothersName" Type="varchar" MaxLength="50" />
+          <Property Name="PresentAddress" Type="varchar" MaxLength="100" />
+          <Property Name="PermanentAddress" Type="varchar" MaxLength="100" />
+          <Property Name="NID" Type="varchar" MaxLength="20" />
+          <Property Name="Phone1" Type="varchar" MaxLength="20" />
+          <Property Name="Phone2" Type="varchar" MaxLength="20" />
+          <Property Name="NomineeName" Type="varchar" MaxLength="50" />
+          <Property Name="RelationWithNominee" Type="varchar" MaxLength="50" />
+          <Property Name="NomineeNIDOrBirthCertificate" Type="varchar" MaxLength="50" />
+          <Property Name="PhotoID" Type="bigint" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_menu_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuOrder" Type="int" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_modules">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_notification">
+          <Key>
+            <PropertyRef Name="notf_id" />
+          </Key>
+          <Property Name="notf_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="notf_type" Type="varchar" MaxLength="50" />
+          <Property Name="notf_ref" Type="bigint" />
+          <Property Name="notf_title" Type="varchar" MaxLength="100" />
+          <Property Name="notf_to" Type="varchar" MaxLength="50" />
+          <Property Name="notf_to_email" Type="varchar" MaxLength="500" />
+          <Property Name="notf_from" Type="varchar" MaxLength="50" />
+          <Property Name="notf_message" Type="varchar" MaxLength="500" />
+          <Property Name="notf_status" Type="varchar" MaxLength="50" />
+          <Property Name="notf_time" Type="datetime" />
+          <Property Name="notf_read_time" Type="datetime" />
+          <Property Name="notf_user_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_pay_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PayTypeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PayTypeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_phone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneType" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_phone_types">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_police_station">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_religions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReligionCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReligionName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RoleActionMappings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="bigint" />
+          <Property Name="Parent" Type="bigint" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="varchar" MaxLength="100" />
+          <Property Name="AreaDisplayText" Type="text" />
+          <Property Name="Controller" Type="varchar" MaxLength="100" />
+          <Property Name="ControllerDisplayText" Type="text" />
+          <Property Name="Action" Type="varchar" MaxLength="100" />
+          <Property Name="ActionDisplayText" Type="text" />
+          <Property Name="Parameters" Type="text" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="ItemOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_RoleActions">
+          <Key>
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Actions" Type="text" />
+          <Property Name="DefaultAction" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_sections">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_subsection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SecCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecBangla" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_training">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+          <Property Name="TrainingTitle" Type="varchar" MaxLength="150" />
+          <Property Name="InstituteName" Type="varchar" MaxLength="150" />
+          <Property Name="TrainingCountry" Type="varchar" MaxLength="10" />
+          <Property Name="TrainingDuration" Type="varchar" MaxLength="10" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Remarks" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tbl_training_status">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_user_defaults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="RoleDefault" Type="varchar" MaxLength="100" />
+          <Property Name="ModuleDefault" Type="varchar" MaxLength="100" />
+          <Property Name="ControllDefault" Type="varchar" MaxLength="100" />
+          <Property Name="ActionDefault" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="KDMDBMODELStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hr_liv_hol_data_holyday_marking" EntityType="Self.hr_liv_hol_data_holyday_marking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_actions" EntityType="Self.tbl_actions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_address" EntityType="Self.tbl_address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_address_types" EntityType="Self.tbl_address_types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_attendance" EntityType="Self.tbl_attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_attendance_devices" EntityType="Self.tbl_attendance_devices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_children" EntityType="Self.tbl_children" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_city" EntityType="Self.tbl_city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_company" EntityType="Self.tbl_company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_config" EntityType="Self.tbl_config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_contact_person" EntityType="Self.tbl_contact_person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_controllers" EntityType="Self.tbl_controllers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_departments" EntityType="Self.tbl_departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_designation" EntityType="Self.tbl_designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_device_data_history" EntityType="Self.tbl_device_data_history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_district" EntityType="Self.tbl_district" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_division" EntityType="Self.tbl_division" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_education" EntityType="Self.tbl_education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_employee_group" EntityType="Self.tbl_employee_group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_employee_status" EntityType="Self.tbl_employee_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_employees" EntityType="Self.tbl_employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_factory" EntityType="Self.tbl_factory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_file" EntityType="Self.tbl_file" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_job_details" EntityType="Self.tbl_job_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_job_status" EntityType="Self.tbl_job_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_joining_details" EntityType="Self.tbl_joining_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_members" EntityType="Self.tbl_members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_menu_category" EntityType="Self.tbl_menu_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_modules" EntityType="Self.tbl_modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_notification" EntityType="Self.tbl_notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_pay_type" EntityType="Self.tbl_pay_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_phone" EntityType="Self.tbl_phone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_phone_types" EntityType="Self.tbl_phone_types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_police_station" EntityType="Self.tbl_police_station" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_religions" EntityType="Self.tbl_religions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RoleActionMappings" EntityType="Self.tbl_RoleActionMappings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RoleActions" EntityType="Self.tbl_RoleActions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_sections" EntityType="Self.tbl_sections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_subsection" EntityType="Self.tbl_subsection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_training" EntityType="Self.tbl_training" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_training_status" EntityType="Self.tbl_training_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_user_defaults" EntityType="Self.tbl_user_defaults" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KDMDBMODEL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hr_liv_hol_data_holyday_marking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Holiday" Type="DateTime" Precision="0" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="InputStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_actions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StreetNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PoliceStation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="House_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_address_types">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_attendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InOut" Type="Boolean" />
+          <Property Name="SwipeNo" Type="Int32" />
+          <Property Name="ProcessedStatus" Type="Int32" Nullable="false" />
+          <Property Name="AttnDate" Type="DateTime" Precision="0" />
+          <Property Name="ProcessDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_attendance_devices">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceId" Type="Int32" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Port" Type="Int32" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_children">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChildName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ChildAge" Type="Int32" />
+          <Property Name="ChildEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_city">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_company">
+          <Key>
+            <PropertyRef Name="CompanyCode" />
+          </Key>
+          <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_config">
+          <Key>
+            <PropertyRef Name="cnfg_id" />
+          </Key>
+          <Property Name="cnfg_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cnfg_app" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cnfg_notification_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnfg_notification_mail_pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cnfg_app_user_default_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cnfg_init_area" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cnfg_init_controller" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cnfg_init_action" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_contact_person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_controllers">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_country">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_departments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DeptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DeptNameBN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_designation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DesigName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DesigNameBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AttnBonus" Type="Int32" Nullable="false" />
+          <Property Name="EmgGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="holiday_allowance" Type="Int32" />
+          <Property Name="DeptGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmpType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TiifinAllowance" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_device_data_history">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AttnDate" Type="DateTime" Precision="3" />
+          <Property Name="mDate" Type="DateTime" Precision="0" />
+          <Property Name="mTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_district">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_division">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_education">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Exam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InstituteName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BoardName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UniversityName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassYear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CGPA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="MaxCGPA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="GroupName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_employee_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmpGrpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_employee_status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpJobStatusCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmpJobStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FingerPrintID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoID" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BanglaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FathersName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MothersName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dob" Type="DateTime" Precision="0" />
+          <Property Name="JoiningDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaritialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfMarriage" Type="DateTime" Precision="3" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HasChild" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceEmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReligionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PFDeduct" Type="Boolean" Nullable="false" />
+          <Property Name="Service_length" Type="Int32" Nullable="false" />
+          <Property Name="BasicSalary" Type="Int32" Nullable="false" />
+          <Property Name="GrossSalary" Type="Int32" />
+          <Property Name="AnyAllowances" Type="Int32" Nullable="false" />
+          <Property Name="HourlyRate" Type="Double" Nullable="false" />
+          <Property Name="PayTypeCode" Type="Int32" Nullable="false" />
+          <Property Name="EmpJobStatusCode" Type="Int32" Nullable="false" />
+          <Property Name="ConfirmDate" Type="DateTime" Precision="0" />
+          <Property Name="Transport" Type="Boolean" />
+          <Property Name="RetirementDate" Type="DateTime" Precision="0" />
+          <Property Name="OverTime" Type="Boolean" Nullable="false" />
+          <Property Name="InputterID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="LastIncYear" Type="Int32" Nullable="false" />
+          <Property Name="ResignDate" Type="DateTime" Precision="0" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FingerTaken" Type="Boolean" />
+          <Property Name="InputStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_factory">
+          <Key>
+            <PropertyRef Name="FactoryCode" />
+          </Key>
+          <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FactoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_file">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="file_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="file_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="file_details" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="file_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="file_ref_id" Type="Int64" />
+          <Property Name="file_ref_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="file_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_job_details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PromotionDate" Type="DateTime" Precision="3" />
+          <Property Name="PreviousDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PreviousDesignationStartDate" Type="DateTime" Precision="3" />
+          <Property Name="PreviousDesignationEndDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_job_status">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_joining_details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BasicSalary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Shift" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProbitionPeriodStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ProbitionPeriodEndDate" Type="DateTime" Precision="3" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Passport_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccount_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ResignationDate" Type="DateTime" Precision="3" />
+          <Property Name="ResignationReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_menu_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuOrder" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_modules">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_notification">
+          <Key>
+            <PropertyRef Name="notf_id" />
+          </Key>
+          <Property Name="notf_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="notf_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="notf_ref" Type="Int64" />
+          <Property Name="notf_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="notf_to" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="notf_to_email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="notf_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="notf_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="notf_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="notf_time" Type="DateTime" Precision="3" />
+          <Property Name="notf_read_time" Type="DateTime" Precision="3" />
+          <Property Name="notf_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_pay_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PayTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PayTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_phone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_phone_types">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_police_station">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_religions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReligionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReligionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RoleActionMappings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="Int64" />
+          <Property Name="Parent" Type="Int64" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AreaDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ControllerDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActionDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="ItemOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_RoleActions">
+          <Key>
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Actions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DefaultAction" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_sections">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_subsection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SecCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecBangla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_training">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrainingTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="InstituteName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TrainingCountry" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TrainingDuration" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_training_status">
+          <Key>
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Value" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_user_defaults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RoleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ModuleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ControllDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActionDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="KDMDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="hr_liv_hol_data_holyday_marking" EntityType="Self.hr_liv_hol_data_holyday_marking" />
+          <EntitySet Name="tbl_actions" EntityType="Self.tbl_actions" />
+          <EntitySet Name="tbl_address" EntityType="Self.tbl_address" />
+          <EntitySet Name="tbl_address_types" EntityType="Self.tbl_address_types" />
+          <EntitySet Name="tbl_attendance" EntityType="Self.tbl_attendance" />
+          <EntitySet Name="tbl_attendance_devices" EntityType="Self.tbl_attendance_devices" />
+          <EntitySet Name="tbl_children" EntityType="Self.tbl_children" />
+          <EntitySet Name="tbl_city" EntityType="Self.tbl_city" />
+          <EntitySet Name="tbl_company" EntityType="Self.tbl_company" />
+          <EntitySet Name="tbl_config" EntityType="Self.tbl_config" />
+          <EntitySet Name="tbl_contact_person" EntityType="Self.tbl_contact_person" />
+          <EntitySet Name="tbl_controllers" EntityType="Self.tbl_controllers" />
+          <EntitySet Name="tbl_country" EntityType="Self.tbl_country" />
+          <EntitySet Name="tbl_departments" EntityType="Self.tbl_departments" />
+          <EntitySet Name="tbl_designation" EntityType="Self.tbl_designation" />
+          <EntitySet Name="tbl_device_data_history" EntityType="Self.tbl_device_data_history" />
+          <EntitySet Name="tbl_district" EntityType="Self.tbl_district" />
+          <EntitySet Name="tbl_division" EntityType="Self.tbl_division" />
+          <EntitySet Name="tbl_education" EntityType="Self.tbl_education" />
+          <EntitySet Name="tbl_employee_group" EntityType="Self.tbl_employee_group" />
+          <EntitySet Name="tbl_employee_status" EntityType="Self.tbl_employee_status" />
+          <EntitySet Name="tbl_employees" EntityType="Self.tbl_employees" />
+          <EntitySet Name="tbl_factory" EntityType="Self.tbl_factory" />
+          <EntitySet Name="tbl_file" EntityType="Self.tbl_file" />
+          <EntitySet Name="tbl_job_details" EntityType="Self.tbl_job_details" />
+          <EntitySet Name="tbl_job_status" EntityType="Self.tbl_job_status" />
+          <EntitySet Name="tbl_joining_details" EntityType="Self.tbl_joining_details" />
+          <EntitySet Name="tbl_menu_category" EntityType="Self.tbl_menu_category" />
+          <EntitySet Name="tbl_modules" EntityType="Self.tbl_modules" />
+          <EntitySet Name="tbl_notification" EntityType="Self.tbl_notification" />
+          <EntitySet Name="tbl_pay_type" EntityType="Self.tbl_pay_type" />
+          <EntitySet Name="tbl_phone" EntityType="Self.tbl_phone" />
+          <EntitySet Name="tbl_phone_types" EntityType="Self.tbl_phone_types" />
+          <EntitySet Name="tbl_police_station" EntityType="Self.tbl_police_station" />
+          <EntitySet Name="tbl_religions" EntityType="Self.tbl_religions" />
+          <EntitySet Name="tbl_RoleActionMappings" EntityType="Self.tbl_RoleActionMappings" />
+          <EntitySet Name="tbl_RoleActions" EntityType="Self.tbl_RoleActions" />
+          <EntitySet Name="tbl_sections" EntityType="Self.tbl_sections" />
+          <EntitySet Name="tbl_subsection" EntityType="Self.tbl_subsection" />
+          <EntitySet Name="tbl_training" EntityType="Self.tbl_training" />
+          <EntitySet Name="tbl_training_status" EntityType="Self.tbl_training_status" />
+          <EntitySet Name="tbl_user_defaults" EntityType="Self.tbl_user_defaults" />
+          <EntitySet Name="tbl_members" EntityType="KDMDBMODEL.tbl_members" />
+        </EntityContainer>
+        <EntityType Name="tbl_members">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SponsorID" Type="Int64" />
+          <Property Name="SponsorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Int32" />
+          <Property Name="DistributorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FathersName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MothersName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PresentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PermanentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NomineeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RelationWithNominee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NomineeNIDOrBirthCertificate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoID" Type="Int64" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KDMDBMODELStoreContainer" CdmEntityContainer="KDMDB">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="KDMDBMODEL.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hr_liv_hol_data_holyday_marking">
+            <EntityTypeMapping TypeName="KDMDBMODEL.hr_liv_hol_data_holyday_marking">
+              <MappingFragment StoreEntitySet="hr_liv_hol_data_holyday_marking">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Holiday" ColumnName="Holiday" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="InputerID" ColumnName="InputerID" />
+                <ScalarProperty Name="AuthorizerID" ColumnName="AuthorizerID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="InputStatus" ColumnName="InputStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_actions">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_actions">
+              <MappingFragment StoreEntitySet="tbl_actions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_address">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_address">
+              <MappingFragment StoreEntitySet="tbl_address">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StreetNo" ColumnName="StreetNo" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="PoliceStation" ColumnName="PoliceStation" />
+                <ScalarProperty Name="PostOffice" ColumnName="PostOffice" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="House_" ColumnName="House#" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_address_types">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_address_types">
+              <MappingFragment StoreEntitySet="tbl_address_types">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_attendance">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_attendance">
+              <MappingFragment StoreEntitySet="tbl_attendance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="InOut" ColumnName="InOut" />
+                <ScalarProperty Name="SwipeNo" ColumnName="SwipeNo" />
+                <ScalarProperty Name="ProcessedStatus" ColumnName="ProcessedStatus" />
+                <ScalarProperty Name="AttnDate" ColumnName="AttnDate" />
+                <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_attendance_devices">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_attendance_devices">
+              <MappingFragment StoreEntitySet="tbl_attendance_devices">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_children">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_children">
+              <MappingFragment StoreEntitySet="tbl_children">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+                <ScalarProperty Name="ChildAge" ColumnName="ChildAge" />
+                <ScalarProperty Name="ChildEducation" ColumnName="ChildEducation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_city">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_city">
+              <MappingFragment StoreEntitySet="tbl_city">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_company">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_company">
+              <MappingFragment StoreEntitySet="tbl_company">
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_config">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_config">
+              <MappingFragment StoreEntitySet="tbl_config">
+                <ScalarProperty Name="cnfg_id" ColumnName="cnfg_id" />
+                <ScalarProperty Name="cnfg_app" ColumnName="cnfg_app" />
+                <ScalarProperty Name="cnfg_notification_mail" ColumnName="cnfg_notification_mail" />
+                <ScalarProperty Name="cnfg_notification_mail_pass" ColumnName="cnfg_notification_mail_pass" />
+                <ScalarProperty Name="cnfg_app_user_default_pass" ColumnName="cnfg_app_user_default_pass" />
+                <ScalarProperty Name="cnfg_init_area" ColumnName="cnfg_init_area" />
+                <ScalarProperty Name="cnfg_init_controller" ColumnName="cnfg_init_controller" />
+                <ScalarProperty Name="cnfg_init_action" ColumnName="cnfg_init_action" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_contact_person">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_contact_person">
+              <MappingFragment StoreEntitySet="tbl_contact_person">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+                <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
+                <ScalarProperty Name="EmailAddress1" ColumnName="EmailAddress1" />
+                <ScalarProperty Name="EmailAddress2" ColumnName="EmailAddress2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_controllers">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_controllers">
+              <MappingFragment StoreEntitySet="tbl_controllers">
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_country">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_country">
+              <MappingFragment StoreEntitySet="tbl_country">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_departments">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_departments">
+              <MappingFragment StoreEntitySet="tbl_departments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="DeptNameBN" ColumnName="DeptNameBN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_designation">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_designation">
+              <MappingFragment StoreEntitySet="tbl_designation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DesigCode" ColumnName="DesigCode" />
+                <ScalarProperty Name="DesigName" ColumnName="DesigName" />
+                <ScalarProperty Name="DesigNameBN" ColumnName="DesigNameBN" />
+                <ScalarProperty Name="AttnBonus" ColumnName="AttnBonus" />
+                <ScalarProperty Name="EmgGroup" ColumnName="EmgGroup" />
+                <ScalarProperty Name="holiday_allowance" ColumnName="holiday_allowance" />
+                <ScalarProperty Name="DeptGrade" ColumnName="DeptGrade" />
+                <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+                <ScalarProperty Name="TiifinAllowance" ColumnName="TiifinAllowance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_device_data_history">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_device_data_history">
+              <MappingFragment StoreEntitySet="tbl_device_data_history">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="AttnDate" ColumnName="AttnDate" />
+                <ScalarProperty Name="mDate" ColumnName="mDate" />
+                <ScalarProperty Name="mTime" ColumnName="mTime" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_district">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_district">
+              <MappingFragment StoreEntitySet="tbl_district">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_division">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_division">
+              <MappingFragment StoreEntitySet="tbl_division">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_education">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_education">
+              <MappingFragment StoreEntitySet="tbl_education">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Exam" ColumnName="Exam" />
+                <ScalarProperty Name="InstituteName" ColumnName="InstituteName" />
+                <ScalarProperty Name="BoardName" ColumnName="BoardName" />
+                <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="PassYear" ColumnName="PassYear" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="MaxCGPA" ColumnName="MaxCGPA" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_employee_group">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_employee_group">
+              <MappingFragment StoreEntitySet="tbl_employee_group">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmpGrpCode" ColumnName="EmpGrpCode" />
+                <ScalarProperty Name="EmpGrpName" ColumnName="EmpGrpName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_employee_status">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_employee_status">
+              <MappingFragment StoreEntitySet="tbl_employee_status">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmpJobStatusCode" ColumnName="EmpJobStatusCode" />
+                <ScalarProperty Name="EmpJobStatusName" ColumnName="EmpJobStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_employees">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_employees">
+              <MappingFragment StoreEntitySet="tbl_employees">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="FingerPrintID" ColumnName="FingerPrintID" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BanglaName" ColumnName="BanglaName" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+                <ScalarProperty Name="FactoryCode" ColumnName="FactoryCode" />
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="EmpGrpCode" ColumnName="EmpGrpCode" />
+                <ScalarProperty Name="DesigCode" ColumnName="DesigCode" />
+                <ScalarProperty Name="SubSection" ColumnName="SubSection" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="MothersName" ColumnName="MothersName" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="MaritialStatus" ColumnName="MaritialStatus" />
+                <ScalarProperty Name="DateOfMarriage" ColumnName="DateOfMarriage" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="HasChild" ColumnName="HasChild" />
+                <ScalarProperty Name="ReferenceEmployeeID" ColumnName="ReferenceEmployeeID" />
+                <ScalarProperty Name="ReligionCode" ColumnName="ReligionCode" />
+                <ScalarProperty Name="PFDeduct" ColumnName="PFDeduct" />
+                <ScalarProperty Name="Service_length" ColumnName="Service_length" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
+                <ScalarProperty Name="AnyAllowances" ColumnName="AnyAllowances" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="PayTypeCode" ColumnName="PayTypeCode" />
+                <ScalarProperty Name="EmpJobStatusCode" ColumnName="EmpJobStatusCode" />
+                <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+                <ScalarProperty Name="Transport" ColumnName="Transport" />
+                <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
+                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
+                <ScalarProperty Name="InputterID" ColumnName="InputterID" />
+                <ScalarProperty Name="AuthorizerID" ColumnName="AuthorizerID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LastIncYear" ColumnName="LastIncYear" />
+                <ScalarProperty Name="ResignDate" ColumnName="ResignDate" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="FingerTaken" ColumnName="FingerTaken" />
+                <ScalarProperty Name="InputStatus" ColumnName="InputStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_factory">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_factory">
+              <MappingFragment StoreEntitySet="tbl_factory">
+                <ScalarProperty Name="FactoryCode" ColumnName="FactoryCode" />
+                <ScalarProperty Name="FactoryName" ColumnName="FactoryName" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_file">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_file">
+              <MappingFragment StoreEntitySet="tbl_file">
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="file_title" ColumnName="file_title" />
+                <ScalarProperty Name="file_type" ColumnName="file_type" />
+                <ScalarProperty Name="file_details" ColumnName="file_details" />
+                <ScalarProperty Name="file_url" ColumnName="file_url" />
+                <ScalarProperty Name="file_ref_id" ColumnName="file_ref_id" />
+                <ScalarProperty Name="file_ref_type" ColumnName="file_ref_type" />
+                <ScalarProperty Name="file_user_by" ColumnName="file_user_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_job_details">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_job_details">
+              <MappingFragment StoreEntitySet="tbl_job_details">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PromotionDate" ColumnName="PromotionDate" />
+                <ScalarProperty Name="PreviousDesignation" ColumnName="PreviousDesignation" />
+                <ScalarProperty Name="CurrentDesignation" ColumnName="CurrentDesignation" />
+                <ScalarProperty Name="PreviousDesignationStartDate" ColumnName="PreviousDesignationStartDate" />
+                <ScalarProperty Name="PreviousDesignationEndDate" ColumnName="PreviousDesignationEndDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_job_status">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_job_status">
+              <MappingFragment StoreEntitySet="tbl_job_status">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_joining_details">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_joining_details">
+              <MappingFragment StoreEntitySet="tbl_joining_details">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="ProbitionPeriodStartDate" ColumnName="ProbitionPeriodStartDate" />
+                <ScalarProperty Name="ProbitionPeriodEndDate" ColumnName="ProbitionPeriodEndDate" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankAccountName" ColumnName="BankAccountName" />
+                <ScalarProperty Name="Passport_" ColumnName="Passport#" />
+                <ScalarProperty Name="TIN" ColumnName="TIN" />
+                <ScalarProperty Name="BankAccount_" ColumnName="BankAccount#" />
+                <ScalarProperty Name="ResignationDate" ColumnName="ResignationDate" />
+                <ScalarProperty Name="ResignationReason" ColumnName="ResignationReason" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_menu_category">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_menu_category">
+              <MappingFragment StoreEntitySet="tbl_menu_category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuOrder" ColumnName="MenuOrder" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_modules">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_modules">
+              <MappingFragment StoreEntitySet="tbl_modules">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_notification">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_notification">
+              <MappingFragment StoreEntitySet="tbl_notification">
+                <ScalarProperty Name="notf_id" ColumnName="notf_id" />
+                <ScalarProperty Name="notf_type" ColumnName="notf_type" />
+                <ScalarProperty Name="notf_ref" ColumnName="notf_ref" />
+                <ScalarProperty Name="notf_title" ColumnName="notf_title" />
+                <ScalarProperty Name="notf_to" ColumnName="notf_to" />
+                <ScalarProperty Name="notf_to_email" ColumnName="notf_to_email" />
+                <ScalarProperty Name="notf_from" ColumnName="notf_from" />
+                <ScalarProperty Name="notf_message" ColumnName="notf_message" />
+                <ScalarProperty Name="notf_status" ColumnName="notf_status" />
+                <ScalarProperty Name="notf_time" ColumnName="notf_time" />
+                <ScalarProperty Name="notf_read_time" ColumnName="notf_read_time" />
+                <ScalarProperty Name="notf_user_by" ColumnName="notf_user_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_pay_type">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_pay_type">
+              <MappingFragment StoreEntitySet="tbl_pay_type">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PayTypeCode" ColumnName="PayTypeCode" />
+                <ScalarProperty Name="PayTypeName" ColumnName="PayTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_phone">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_phone">
+              <MappingFragment StoreEntitySet="tbl_phone">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="PhoneType" ColumnName="PhoneType" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_phone_types">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_phone_types">
+              <MappingFragment StoreEntitySet="tbl_phone_types">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_police_station">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_police_station">
+              <MappingFragment StoreEntitySet="tbl_police_station">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_religions">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_religions">
+              <MappingFragment StoreEntitySet="tbl_religions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ReligionCode" ColumnName="ReligionCode" />
+                <ScalarProperty Name="ReligionName" ColumnName="ReligionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RoleActionMappings">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_RoleActionMappings">
+              <MappingFragment StoreEntitySet="tbl_RoleActionMappings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="AreaDisplayText" ColumnName="AreaDisplayText" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="ControllerDisplayText" ColumnName="ControllerDisplayText" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="ActionDisplayText" ColumnName="ActionDisplayText" />
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ItemOrder" ColumnName="ItemOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RoleActions">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_RoleActions">
+              <MappingFragment StoreEntitySet="tbl_RoleActions">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Actions" ColumnName="Actions" />
+                <ScalarProperty Name="DefaultAction" ColumnName="DefaultAction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_sections">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_sections">
+              <MappingFragment StoreEntitySet="tbl_sections">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_subsection">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_subsection">
+              <MappingFragment StoreEntitySet="tbl_subsection">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SecCode" ColumnName="SecCode" />
+                <ScalarProperty Name="SecDesc" ColumnName="SecDesc" />
+                <ScalarProperty Name="SecBangla" ColumnName="SecBangla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_training">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_training">
+              <MappingFragment StoreEntitySet="tbl_training">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="TrainingTitle" ColumnName="TrainingTitle" />
+                <ScalarProperty Name="InstituteName" ColumnName="InstituteName" />
+                <ScalarProperty Name="TrainingCountry" ColumnName="TrainingCountry" />
+                <ScalarProperty Name="TrainingDuration" ColumnName="TrainingDuration" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_training_status">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_training_status">
+              <MappingFragment StoreEntitySet="tbl_training_status">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_user_defaults">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_user_defaults">
+              <MappingFragment StoreEntitySet="tbl_user_defaults">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleDefault" ColumnName="RoleDefault" />
+                <ScalarProperty Name="ModuleDefault" ColumnName="ModuleDefault" />
+                <ScalarProperty Name="ControllDefault" ColumnName="ControllDefault" />
+                <ScalarProperty Name="ActionDefault" ColumnName="ActionDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_members">
+            <EntityTypeMapping TypeName="KDMDBMODEL.tbl_members">
+              <MappingFragment StoreEntitySet="tbl_members">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+                <ScalarProperty Name="NomineeNIDOrBirthCertificate" ColumnName="NomineeNIDOrBirthCertificate" />
+                <ScalarProperty Name="RelationWithNominee" ColumnName="RelationWithNominee" />
+                <ScalarProperty Name="NomineeName" ColumnName="NomineeName" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="MothersName" ColumnName="MothersName" />
+                <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="SponsorName" ColumnName="SponsorName" />
+                <ScalarProperty Name="SponsorID" ColumnName="SponsorID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ERPDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_actions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Controller" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_address_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_city">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_config">
+    <Key>
+      <PropertyRef Name="cnfg_id" />
+    </Key>
+    <Property Name="cnfg_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cnfg_app" Type="varchar" MaxLength="50" />
+    <Property Name="cnfg_notification_mail" Type="varchar" MaxLength="100" />
+    <Property Name="cnfg_notification_mail_pass" Type="varchar" MaxLength="100" />
+    <Property Name="cnfg_app_user_default_pass" Type="varchar" MaxLength="50" />
+    <Property Name="cnfg_init_area" Type="varchar" MaxLength="500" />
+    <Property Name="cnfg_init_controller" Type="varchar" MaxLength="500" />
+    <Property Name="cnfg_init_action" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tbl_controllers">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Module" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_departments">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_designation">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_district">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_division">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_employee_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_title" Type="varchar" MaxLength="100" />
+    <Property Name="file_type" Type="varchar" MaxLength="50" />
+    <Property Name="file_details" Type="varchar" MaxLength="500" />
+    <Property Name="file_url" Type="varchar" MaxLength="500" />
+    <Property Name="file_ref_id" Type="bigint" />
+    <Property Name="file_ref_type" Type="varchar" MaxLength="50" />
+    <Property Name="file_user_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_menu_category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_modules">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_notification">
+    <Key>
+      <PropertyRef Name="notf_id" />
+    </Key>
+    <Property Name="notf_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="notf_type" Type="varchar" MaxLength="50" />
+    <Property Name="notf_ref" Type="bigint" />
+    <Property Name="notf_title" Type="varchar" MaxLength="100" />
+    <Property Name="notf_to" Type="varchar" MaxLength="50" />
+    <Property Name="notf_to_email" Type="varchar" MaxLength="500" />
+    <Property Name="notf_from" Type="varchar" MaxLength="50" />
+    <Property Name="notf_message" Type="varchar" MaxLength="500" />
+    <Property Name="notf_status" Type="varchar" MaxLength="50" />
+    <Property Name="notf_time" Type="datetime" />
+    <Property Name="notf_read_time" Type="datetime" />
+    <Property Name="notf_user_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_phone_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_police_station">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_religions">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActionMappings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="bigint" />
+    <Property Name="Parent" Type="bigint" />
+    <Property Name="Role" Type="varchar" MaxLength="50" />
+    <Property Name="Area" Type="varchar" MaxLength="100" />
+    <Property Name="AreaDisplayText" Type="text" />
+    <Property Name="Controller" Type="varchar" MaxLength="100" />
+    <Property Name="ControllerDisplayText" Type="text" />
+    <Property Name="Action" Type="varchar" MaxLength="100" />
+    <Property Name="ActionDisplayText" Type="text" />
+    <Property Name="Parameters" Type="text" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ItemOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActions">
+    <Key>
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Actions" Type="text" />
+    <Property Name="DefaultAction" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_sections">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_user_defaults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="RoleDefault" Type="varchar" MaxLength="100" />
+    <Property Name="ModuleDefault" Type="varchar" MaxLength="100" />
+    <Property Name="ControllDefault" Type="varchar" MaxLength="100" />
+    <Property Name="ActionDefault" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="ERPDBModelStoreContainer">
+    <EntitySet Name="tbl_actions" EntityType="Self.tbl_actions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_address_types" EntityType="Self.tbl_address_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_city" EntityType="Self.tbl_city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_config" EntityType="Self.tbl_config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_controllers" EntityType="Self.tbl_controllers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_departments" EntityType="Self.tbl_departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_designation" EntityType="Self.tbl_designation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_district" EntityType="Self.tbl_district" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_division" EntityType="Self.tbl_division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_employee_status" EntityType="Self.tbl_employee_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_file" EntityType="Self.tbl_file" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_menu_category" EntityType="Self.tbl_menu_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_modules" EntityType="Self.tbl_modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_notification" EntityType="Self.tbl_notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_phone_types" EntityType="Self.tbl_phone_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_police_station" EntityType="Self.tbl_police_station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_religions" EntityType="Self.tbl_religions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RoleActionMappings" EntityType="Self.tbl_RoleActionMappings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RoleActions" EntityType="Self.tbl_RoleActions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sections" EntityType="Self.tbl_sections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user_defaults" EntityType="Self.tbl_user_defaults" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

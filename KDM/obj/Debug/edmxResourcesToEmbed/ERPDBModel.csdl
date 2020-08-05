@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ERPDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ERPDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_file" EntityType="ERPDBModel.tbl_file" />
+    <EntitySet Name="tbl_notification" EntityType="ERPDBModel.tbl_notification" />
+    <EntitySet Name="tbl_config" EntityType="ERPDBModel.tbl_config" />
+    <EntitySet Name="tbl_RoleActions" EntityType="ERPDBModel.tbl_RoleActions" />
+    <EntitySet Name="tbl_employee_status" EntityType="ERPDBModel.tbl_employee_status" />
+    <EntitySet Name="tbl_controllers" EntityType="ERPDBModel.tbl_controllers" />
+    <EntitySet Name="tbl_modules" EntityType="ERPDBModel.tbl_modules" />
+    <EntitySet Name="tbl_actions" EntityType="ERPDBModel.tbl_actions" />
+    <EntitySet Name="tbl_user_defaults" EntityType="ERPDBModel.tbl_user_defaults" />
+    <EntitySet Name="tbl_city" EntityType="ERPDBModel.tbl_city" />
+    <EntitySet Name="tbl_country" EntityType="ERPDBModel.tbl_country" />
+    <EntitySet Name="tbl_district" EntityType="ERPDBModel.tbl_district" />
+    <EntitySet Name="tbl_division" EntityType="ERPDBModel.tbl_division" />
+    <EntitySet Name="tbl_police_station" EntityType="ERPDBModel.tbl_police_station" />
+    <EntitySet Name="tbl_address_types" EntityType="ERPDBModel.tbl_address_types" />
+    <EntitySet Name="tbl_phone_types" EntityType="ERPDBModel.tbl_phone_types" />
+    <EntitySet Name="tbl_designation" EntityType="ERPDBModel.tbl_designation" />
+    <EntitySet Name="tbl_departments" EntityType="ERPDBModel.tbl_departments" />
+    <EntitySet Name="tbl_sections" EntityType="ERPDBModel.tbl_sections" />
+    <EntitySet Name="tbl_religions" EntityType="ERPDBModel.tbl_religions" />
+    <EntitySet Name="tbl_menu_category" EntityType="ERPDBModel.tbl_menu_category" />
+    <EntitySet Name="tbl_RoleActionMappings" EntityType="ERPDBModel.tbl_RoleActionMappings" />
+  </EntityContainer>
+  <EntityType Name="tbl_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="file_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_details" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_ref_id" Type="Int64" />
+    <Property Name="file_ref_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_notification">
+    <Key>
+      <PropertyRef Name="notf_id" />
+    </Key>
+    <Property Name="notf_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="notf_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_ref" Type="Int64" />
+    <Property Name="notf_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to_email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_read_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_config">
+    <Key>
+      <PropertyRef Name="cnfg_id" />
+    </Key>
+    <Property Name="cnfg_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cnfg_app" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail_pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_app_user_default_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_area" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_controller" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_action" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActions">
+    <Key>
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Actions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultAction" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_employee_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_controllers">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_modules">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_actions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_user_defaults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RoleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_city">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_district">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_division">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_police_station">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_address_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_phone_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_designation">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_departments">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_sections">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_religions">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_menu_category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActionMappings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="Int64" />
+    <Property Name="Parent" Type="Int64" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AreaDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllerDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ItemOrder" Type="Int32" />
+  </EntityType>
+</Schema>

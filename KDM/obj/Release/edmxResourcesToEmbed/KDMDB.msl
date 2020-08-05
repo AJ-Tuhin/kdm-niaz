@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KDMDBMODELStoreContainer" CdmEntityContainer="KDMDB">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="KDMDBMODEL.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hr_liv_hol_data_holyday_marking">
+      <EntityTypeMapping TypeName="KDMDBMODEL.hr_liv_hol_data_holyday_marking">
+        <MappingFragment StoreEntitySet="hr_liv_hol_data_holyday_marking">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Holiday" ColumnName="Holiday" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="InputerID" ColumnName="InputerID" />
+          <ScalarProperty Name="AuthorizerID" ColumnName="AuthorizerID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InputStatus" ColumnName="InputStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_actions">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_actions">
+        <MappingFragment StoreEntitySet="tbl_actions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_address">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_address">
+        <MappingFragment StoreEntitySet="tbl_address">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StreetNo" ColumnName="StreetNo" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="PoliceStation" ColumnName="PoliceStation" />
+          <ScalarProperty Name="PostOffice" ColumnName="PostOffice" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="House_" ColumnName="House#" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_address_types">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_address_types">
+        <MappingFragment StoreEntitySet="tbl_address_types">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_attendance">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_attendance">
+        <MappingFragment StoreEntitySet="tbl_attendance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="InOut" ColumnName="InOut" />
+          <ScalarProperty Name="SwipeNo" ColumnName="SwipeNo" />
+          <ScalarProperty Name="ProcessedStatus" ColumnName="ProcessedStatus" />
+          <ScalarProperty Name="AttnDate" ColumnName="AttnDate" />
+          <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_attendance_devices">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_attendance_devices">
+        <MappingFragment StoreEntitySet="tbl_attendance_devices">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_children">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_children">
+        <MappingFragment StoreEntitySet="tbl_children">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+          <ScalarProperty Name="ChildAge" ColumnName="ChildAge" />
+          <ScalarProperty Name="ChildEducation" ColumnName="ChildEducation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_city">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_city">
+        <MappingFragment StoreEntitySet="tbl_city">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_company">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_company">
+        <MappingFragment StoreEntitySet="tbl_company">
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_config">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_config">
+        <MappingFragment StoreEntitySet="tbl_config">
+          <ScalarProperty Name="cnfg_id" ColumnName="cnfg_id" />
+          <ScalarProperty Name="cnfg_app" ColumnName="cnfg_app" />
+          <ScalarProperty Name="cnfg_notification_mail" ColumnName="cnfg_notification_mail" />
+          <ScalarProperty Name="cnfg_notification_mail_pass" ColumnName="cnfg_notification_mail_pass" />
+          <ScalarProperty Name="cnfg_app_user_default_pass" ColumnName="cnfg_app_user_default_pass" />
+          <ScalarProperty Name="cnfg_init_area" ColumnName="cnfg_init_area" />
+          <ScalarProperty Name="cnfg_init_controller" ColumnName="cnfg_init_controller" />
+          <ScalarProperty Name="cnfg_init_action" ColumnName="cnfg_init_action" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_contact_person">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_contact_person">
+        <MappingFragment StoreEntitySet="tbl_contact_person">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+          <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
+          <ScalarProperty Name="EmailAddress1" ColumnName="EmailAddress1" />
+          <ScalarProperty Name="EmailAddress2" ColumnName="EmailAddress2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_controllers">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_controllers">
+        <MappingFragment StoreEntitySet="tbl_controllers">
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_country">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_country">
+        <MappingFragment StoreEntitySet="tbl_country">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_departments">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_departments">
+        <MappingFragment StoreEntitySet="tbl_departments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptNameBN" ColumnName="DeptNameBN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_designation">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_designation">
+        <MappingFragment StoreEntitySet="tbl_designation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DesigCode" ColumnName="DesigCode" />
+          <ScalarProperty Name="DesigName" ColumnName="DesigName" />
+          <ScalarProperty Name="DesigNameBN" ColumnName="DesigNameBN" />
+          <ScalarProperty Name="AttnBonus" ColumnName="AttnBonus" />
+          <ScalarProperty Name="EmgGroup" ColumnName="EmgGroup" />
+          <ScalarProperty Name="holiday_allowance" ColumnName="holiday_allowance" />
+          <ScalarProperty Name="DeptGrade" ColumnName="DeptGrade" />
+          <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+          <ScalarProperty Name="TiifinAllowance" ColumnName="TiifinAllowance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_device_data_history">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_device_data_history">
+        <MappingFragment StoreEntitySet="tbl_device_data_history">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="AttnDate" ColumnName="AttnDate" />
+          <ScalarProperty Name="mDate" ColumnName="mDate" />
+          <ScalarProperty Name="mTime" ColumnName="mTime" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_district">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_district">
+        <MappingFragment StoreEntitySet="tbl_district">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_division">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_division">
+        <MappingFragment StoreEntitySet="tbl_division">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_education">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_education">
+        <MappingFragment StoreEntitySet="tbl_education">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Exam" ColumnName="Exam" />
+          <ScalarProperty Name="InstituteName" ColumnName="InstituteName" />
+          <ScalarProperty Name="BoardName" ColumnName="BoardName" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="PassYear" ColumnName="PassYear" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+          <ScalarProperty Name="MaxCGPA" ColumnName="MaxCGPA" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_employee_group">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_employee_group">
+        <MappingFragment StoreEntitySet="tbl_employee_group">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpGrpCode" ColumnName="EmpGrpCode" />
+          <ScalarProperty Name="EmpGrpName" ColumnName="EmpGrpName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_employee_status">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_employee_status">
+        <MappingFragment StoreEntitySet="tbl_employee_status">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpJobStatusCode" ColumnName="EmpJobStatusCode" />
+          <ScalarProperty Name="EmpJobStatusName" ColumnName="EmpJobStatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_employees">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_employees">
+        <MappingFragment StoreEntitySet="tbl_employees">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="FingerPrintID" ColumnName="FingerPrintID" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BanglaName" ColumnName="BanglaName" />
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="FactoryCode" ColumnName="FactoryCode" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="EmpGrpCode" ColumnName="EmpGrpCode" />
+          <ScalarProperty Name="DesigCode" ColumnName="DesigCode" />
+          <ScalarProperty Name="SubSection" ColumnName="SubSection" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="MothersName" ColumnName="MothersName" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="MaritialStatus" ColumnName="MaritialStatus" />
+          <ScalarProperty Name="DateOfMarriage" ColumnName="DateOfMarriage" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="HasChild" ColumnName="HasChild" />
+          <ScalarProperty Name="ReferenceEmployeeID" ColumnName="ReferenceEmployeeID" />
+          <ScalarProperty Name="ReligionCode" ColumnName="ReligionCode" />
+          <ScalarProperty Name="PFDeduct" ColumnName="PFDeduct" />
+          <ScalarProperty Name="Service_length" ColumnName="Service_length" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
+          <ScalarProperty Name="AnyAllowances" ColumnName="AnyAllowances" />
+          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+          <ScalarProperty Name="PayTypeCode" ColumnName="PayTypeCode" />
+          <ScalarProperty Name="EmpJobStatusCode" ColumnName="EmpJobStatusCode" />
+          <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+          <ScalarProperty Name="Transport" ColumnName="Transport" />
+          <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
+          <ScalarProperty Name="OverTime" ColumnName="OverTime" />
+          <ScalarProperty Name="InputterID" ColumnName="InputterID" />
+          <ScalarProperty Name="AuthorizerID" ColumnName="AuthorizerID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LastIncYear" ColumnName="LastIncYear" />
+          <ScalarProperty Name="ResignDate" ColumnName="ResignDate" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="FingerTaken" ColumnName="FingerTaken" />
+          <ScalarProperty Name="InputStatus" ColumnName="InputStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_factory">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_factory">
+        <MappingFragment StoreEntitySet="tbl_factory">
+          <ScalarProperty Name="FactoryCode" ColumnName="FactoryCode" />
+          <ScalarProperty Name="FactoryName" ColumnName="FactoryName" />
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_file">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_file">
+        <MappingFragment StoreEntitySet="tbl_file">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_title" ColumnName="file_title" />
+          <ScalarProperty Name="file_type" ColumnName="file_type" />
+          <ScalarProperty Name="file_details" ColumnName="file_details" />
+          <ScalarProperty Name="file_url" ColumnName="file_url" />
+          <ScalarProperty Name="file_ref_id" ColumnName="file_ref_id" />
+          <ScalarProperty Name="file_ref_type" ColumnName="file_ref_type" />
+          <ScalarProperty Name="file_user_by" ColumnName="file_user_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_job_details">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_job_details">
+        <MappingFragment StoreEntitySet="tbl_job_details">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PromotionDate" ColumnName="PromotionDate" />
+          <ScalarProperty Name="PreviousDesignation" ColumnName="PreviousDesignation" />
+          <ScalarProperty Name="CurrentDesignation" ColumnName="CurrentDesignation" />
+          <ScalarProperty Name="PreviousDesignationStartDate" ColumnName="PreviousDesignationStartDate" />
+          <ScalarProperty Name="PreviousDesignationEndDate" ColumnName="PreviousDesignationEndDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_job_status">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_job_status">
+        <MappingFragment StoreEntitySet="tbl_job_status">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_joining_details">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_joining_details">
+        <MappingFragment StoreEntitySet="tbl_joining_details">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="ProbitionPeriodStartDate" ColumnName="ProbitionPeriodStartDate" />
+          <ScalarProperty Name="ProbitionPeriodEndDate" ColumnName="ProbitionPeriodEndDate" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="BankAccountName" ColumnName="BankAccountName" />
+          <ScalarProperty Name="Passport_" ColumnName="Passport#" />
+          <ScalarProperty Name="TIN" ColumnName="TIN" />
+          <ScalarProperty Name="BankAccount_" ColumnName="BankAccount#" />
+          <ScalarProperty Name="ResignationDate" ColumnName="ResignationDate" />
+          <ScalarProperty Name="ResignationReason" ColumnName="ResignationReason" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_menu_category">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_menu_category">
+        <MappingFragment StoreEntitySet="tbl_menu_category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuOrder" ColumnName="MenuOrder" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_modules">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_modules">
+        <MappingFragment StoreEntitySet="tbl_modules">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_notification">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_notification">
+        <MappingFragment StoreEntitySet="tbl_notification">
+          <ScalarProperty Name="notf_id" ColumnName="notf_id" />
+          <ScalarProperty Name="notf_type" ColumnName="notf_type" />
+          <ScalarProperty Name="notf_ref" ColumnName="notf_ref" />
+          <ScalarProperty Name="notf_title" ColumnName="notf_title" />
+          <ScalarProperty Name="notf_to" ColumnName="notf_to" />
+          <ScalarProperty Name="notf_to_email" ColumnName="notf_to_email" />
+          <ScalarProperty Name="notf_from" ColumnName="notf_from" />
+          <ScalarProperty Name="notf_message" ColumnName="notf_message" />
+          <ScalarProperty Name="notf_status" ColumnName="notf_status" />
+          <ScalarProperty Name="notf_time" ColumnName="notf_time" />
+          <ScalarProperty Name="notf_read_time" ColumnName="notf_read_time" />
+          <ScalarProperty Name="notf_user_by" ColumnName="notf_user_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pay_type">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_pay_type">
+        <MappingFragment StoreEntitySet="tbl_pay_type">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PayTypeCode" ColumnName="PayTypeCode" />
+          <ScalarProperty Name="PayTypeName" ColumnName="PayTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_phone">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_phone">
+        <MappingFragment StoreEntitySet="tbl_phone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="PhoneType" ColumnName="PhoneType" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_phone_types">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_phone_types">
+        <MappingFragment StoreEntitySet="tbl_phone_types">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_police_station">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_police_station">
+        <MappingFragment StoreEntitySet="tbl_police_station">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_religions">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_religions">
+        <MappingFragment StoreEntitySet="tbl_religions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ReligionCode" ColumnName="ReligionCode" />
+          <ScalarProperty Name="ReligionName" ColumnName="ReligionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoleActionMappings">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_RoleActionMappings">
+        <MappingFragment StoreEntitySet="tbl_RoleActionMappings">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="AreaDisplayText" ColumnName="AreaDisplayText" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="ControllerDisplayText" ColumnName="ControllerDisplayText" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="ActionDisplayText" ColumnName="ActionDisplayText" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ItemOrder" ColumnName="ItemOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoleActions">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_RoleActions">
+        <MappingFragment StoreEntitySet="tbl_RoleActions">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Actions" ColumnName="Actions" />
+          <ScalarProperty Name="DefaultAction" ColumnName="DefaultAction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_sections">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_sections">
+        <MappingFragment StoreEntitySet="tbl_sections">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_subsection">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_subsection">
+        <MappingFragment StoreEntitySet="tbl_subsection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SecCode" ColumnName="SecCode" />
+          <ScalarProperty Name="SecDesc" ColumnName="SecDesc" />
+          <ScalarProperty Name="SecBangla" ColumnName="SecBangla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_training">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_training">
+        <MappingFragment StoreEntitySet="tbl_training">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="TrainingTitle" ColumnName="TrainingTitle" />
+          <ScalarProperty Name="InstituteName" ColumnName="InstituteName" />
+          <ScalarProperty Name="TrainingCountry" ColumnName="TrainingCountry" />
+          <ScalarProperty Name="TrainingDuration" ColumnName="TrainingDuration" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_training_status">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_training_status">
+        <MappingFragment StoreEntitySet="tbl_training_status">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user_defaults">
+      <EntityTypeMapping TypeName="KDMDBMODEL.tbl_user_defaults">
+        <MappingFragment StoreEntitySet="tbl_user_defaults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleDefault" ColumnName="RoleDefault" />
+          <ScalarProperty Name="ModuleDefault" ColumnName="ModuleDefault" />
+          <ScalarProperty Name="ControllDefault" ColumnName="ControllDefault" />
+          <ScalarProperty Name="ActionDefault" ColumnName="ActionDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

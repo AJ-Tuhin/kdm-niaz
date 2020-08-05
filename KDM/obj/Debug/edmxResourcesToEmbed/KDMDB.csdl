@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KDMDBMODEL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_hol_data_holyday_marking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Holiday" Type="DateTime" Precision="0" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="InputerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="InputStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_actions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StreetNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PoliceStation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="House_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_address_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InOut" Type="Boolean" />
+    <Property Name="SwipeNo" Type="Int32" />
+    <Property Name="ProcessedStatus" Type="Int32" Nullable="false" />
+    <Property Name="AttnDate" Type="DateTime" Precision="0" />
+    <Property Name="ProcessDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tbl_attendance_devices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceId" Type="Int32" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Port" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_children">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChildName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ChildAge" Type="Int32" />
+    <Property Name="ChildEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_city">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_company">
+    <Key>
+      <PropertyRef Name="CompanyCode" />
+    </Key>
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_config">
+    <Key>
+      <PropertyRef Name="cnfg_id" />
+    </Key>
+    <Property Name="cnfg_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cnfg_app" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail_pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_app_user_default_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_area" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_controller" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_action" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_contact_person">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_controllers">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_departments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptNameBN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_designation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DesigName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DesigNameBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AttnBonus" Type="Int32" Nullable="false" />
+    <Property Name="EmgGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="holiday_allowance" Type="Int32" />
+    <Property Name="DeptGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmpType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TiifinAllowance" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_device_data_history">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AttnDate" Type="DateTime" Precision="3" />
+    <Property Name="mDate" Type="DateTime" Precision="0" />
+    <Property Name="mTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_district">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_division">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_education">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Exam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InstituteName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="BoardName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UniversityName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PassYear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Class" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CGPA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MaxCGPA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="GroupName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_employee_group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpGrpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_employee_status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpJobStatusCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpJobStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_employees">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FingerPrintID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoID" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BanglaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FathersName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpGrpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DesigCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SubSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MothersName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dob" Type="DateTime" Precision="0" />
+    <Property Name="JoiningDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MaritialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateOfMarriage" Type="DateTime" Precision="3" />
+    <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HasChild" Type="Int32" Nullable="false" />
+    <Property Name="ReferenceEmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReligionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PFDeduct" Type="Boolean" Nullable="false" />
+    <Property Name="Service_length" Type="Int32" Nullable="false" />
+    <Property Name="BasicSalary" Type="Int32" Nullable="false" />
+    <Property Name="GrossSalary" Type="Int32" />
+    <Property Name="AnyAllowances" Type="Int32" Nullable="false" />
+    <Property Name="HourlyRate" Type="Double" Nullable="false" />
+    <Property Name="PayTypeCode" Type="Int32" Nullable="false" />
+    <Property Name="EmpJobStatusCode" Type="Int32" Nullable="false" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="0" />
+    <Property Name="Transport" Type="Boolean" />
+    <Property Name="RetirementDate" Type="DateTime" Precision="0" />
+    <Property Name="OverTime" Type="Boolean" Nullable="false" />
+    <Property Name="InputterID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="LastIncYear" Type="Int32" Nullable="false" />
+    <Property Name="ResignDate" Type="DateTime" Precision="0" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FingerTaken" Type="Boolean" />
+    <Property Name="InputStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_factory">
+    <Key>
+      <PropertyRef Name="FactoryCode" />
+    </Key>
+    <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FactoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="file_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_details" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_ref_id" Type="Int64" />
+    <Property Name="file_ref_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_job_details">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PromotionDate" Type="DateTime" Precision="3" />
+    <Property Name="PreviousDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PreviousDesignationStartDate" Type="DateTime" Precision="3" />
+    <Property Name="PreviousDesignationEndDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_job_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_joining_details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BasicSalary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Shift" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProbitionPeriodStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ProbitionPeriodEndDate" Type="DateTime" Precision="3" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Passport_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccount_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ResignationDate" Type="DateTime" Precision="3" />
+    <Property Name="ResignationReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_menu_category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuOrder" Type="Int32" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_modules">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_notification">
+    <Key>
+      <PropertyRef Name="notf_id" />
+    </Key>
+    <Property Name="notf_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="notf_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_ref" Type="Int64" />
+    <Property Name="notf_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to_email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_read_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_pay_type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PayTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PayTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_phone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_phone_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_police_station">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_religions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReligionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReligionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActionMappings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="Int64" />
+    <Property Name="Parent" Type="Int64" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AreaDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllerDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ItemOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActions">
+    <Key>
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Actions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultAction" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_sections">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_subsection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SecCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SecDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SecBangla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_training">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="InstituteName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingCountry" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingDuration" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_training_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_user_defaults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RoleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="KDMDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="hr_liv_hol_data_holyday_marking" EntityType="Self.hr_liv_hol_data_holyday_marking" />
+    <EntitySet Name="tbl_actions" EntityType="Self.tbl_actions" />
+    <EntitySet Name="tbl_address" EntityType="Self.tbl_address" />
+    <EntitySet Name="tbl_address_types" EntityType="Self.tbl_address_types" />
+    <EntitySet Name="tbl_attendance" EntityType="Self.tbl_attendance" />
+    <EntitySet Name="tbl_attendance_devices" EntityType="Self.tbl_attendance_devices" />
+    <EntitySet Name="tbl_children" EntityType="Self.tbl_children" />
+    <EntitySet Name="tbl_city" EntityType="Self.tbl_city" />
+    <EntitySet Name="tbl_company" EntityType="Self.tbl_company" />
+    <EntitySet Name="tbl_config" EntityType="Self.tbl_config" />
+    <EntitySet Name="tbl_contact_person" EntityType="Self.tbl_contact_person" />
+    <EntitySet Name="tbl_controllers" EntityType="Self.tbl_controllers" />
+    <EntitySet Name="tbl_country" EntityType="Self.tbl_country" />
+    <EntitySet Name="tbl_departments" EntityType="Self.tbl_departments" />
+    <EntitySet Name="tbl_designation" EntityType="Self.tbl_designation" />
+    <EntitySet Name="tbl_device_data_history" EntityType="Self.tbl_device_data_history" />
+    <EntitySet Name="tbl_district" EntityType="Self.tbl_district" />
+    <EntitySet Name="tbl_division" EntityType="Self.tbl_division" />
+    <EntitySet Name="tbl_education" EntityType="Self.tbl_education" />
+    <EntitySet Name="tbl_employee_group" EntityType="Self.tbl_employee_group" />
+    <EntitySet Name="tbl_employee_status" EntityType="Self.tbl_employee_status" />
+    <EntitySet Name="tbl_employees" EntityType="Self.tbl_employees" />
+    <EntitySet Name="tbl_factory" EntityType="Self.tbl_factory" />
+    <EntitySet Name="tbl_file" EntityType="Self.tbl_file" />
+    <EntitySet Name="tbl_job_details" EntityType="Self.tbl_job_details" />
+    <EntitySet Name="tbl_job_status" EntityType="Self.tbl_job_status" />
+    <EntitySet Name="tbl_joining_details" EntityType="Self.tbl_joining_details" />
+    <EntitySet Name="tbl_menu_category" EntityType="Self.tbl_menu_category" />
+    <EntitySet Name="tbl_modules" EntityType="Self.tbl_modules" />
+    <EntitySet Name="tbl_notification" EntityType="Self.tbl_notification" />
+    <EntitySet Name="tbl_pay_type" EntityType="Self.tbl_pay_type" />
+    <EntitySet Name="tbl_phone" EntityType="Self.tbl_phone" />
+    <EntitySet Name="tbl_phone_types" EntityType="Self.tbl_phone_types" />
+    <EntitySet Name="tbl_police_station" EntityType="Self.tbl_police_station" />
+    <EntitySet Name="tbl_religions" EntityType="Self.tbl_religions" />
+    <EntitySet Name="tbl_RoleActionMappings" EntityType="Self.tbl_RoleActionMappings" />
+    <EntitySet Name="tbl_RoleActions" EntityType="Self.tbl_RoleActions" />
+    <EntitySet Name="tbl_sections" EntityType="Self.tbl_sections" />
+    <EntitySet Name="tbl_subsection" EntityType="Self.tbl_subsection" />
+    <EntitySet Name="tbl_training" EntityType="Self.tbl_training" />
+    <EntitySet Name="tbl_training_status" EntityType="Self.tbl_training_status" />
+    <EntitySet Name="tbl_user_defaults" EntityType="Self.tbl_user_defaults" />
+    <EntitySet Name="tbl_members" EntityType="KDMDBMODEL.tbl_members" />
+  </EntityContainer>
+  <EntityType Name="tbl_members">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SponsorID" Type="Int64" />
+    <Property Name="SponsorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="Int32" />
+    <Property Name="DistributorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FathersName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MothersName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PresentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PermanentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NomineeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RelationWithNominee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NomineeNIDOrBirthCertificate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoID" Type="Int64" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

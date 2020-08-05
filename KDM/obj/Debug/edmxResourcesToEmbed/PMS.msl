@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMSDBMODELStoreContainer" CdmEntityContainer="PMSDB">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="PMSDBMODEL.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="PMSDBMODEL.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="PMSDBMODEL.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="PMSDBMODEL.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="MappedID" ColumnName="MappedID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_actions">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_actions">
+        <MappingFragment StoreEntitySet="tbl_actions">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_address">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_address">
+        <MappingFragment StoreEntitySet="tbl_address">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="House_" ColumnName="House#" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="PostOffice" ColumnName="PostOffice" />
+          <ScalarProperty Name="PoliceStation" ColumnName="PoliceStation" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="StreetNo" ColumnName="StreetNo" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_address_types">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_address_types">
+        <MappingFragment StoreEntitySet="tbl_address_types">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_config">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_config">
+        <MappingFragment StoreEntitySet="tbl_config">
+          <ScalarProperty Name="cnfg_init_action" ColumnName="cnfg_init_action" />
+          <ScalarProperty Name="cnfg_init_controller" ColumnName="cnfg_init_controller" />
+          <ScalarProperty Name="cnfg_init_area" ColumnName="cnfg_init_area" />
+          <ScalarProperty Name="cnfg_app_user_default_pass" ColumnName="cnfg_app_user_default_pass" />
+          <ScalarProperty Name="cnfg_notification_mail_pass" ColumnName="cnfg_notification_mail_pass" />
+          <ScalarProperty Name="cnfg_notification_mail" ColumnName="cnfg_notification_mail" />
+          <ScalarProperty Name="cnfg_app" ColumnName="cnfg_app" />
+          <ScalarProperty Name="cnfg_id" ColumnName="cnfg_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_contact_person">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_contact_person">
+        <MappingFragment StoreEntitySet="tbl_contact_person">
+          <ScalarProperty Name="EmailAddress2" ColumnName="EmailAddress2" />
+          <ScalarProperty Name="EmailAddress1" ColumnName="EmailAddress1" />
+          <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
+          <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_controllers">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_controllers">
+        <MappingFragment StoreEntitySet="tbl_controllers">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_country">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_country">
+        <MappingFragment StoreEntitySet="tbl_country">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_departments">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_departments">
+        <MappingFragment StoreEntitySet="tbl_departments">
+          <ScalarProperty Name="DeptNameBN" ColumnName="DeptNameBN" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_designation">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_designation">
+        <MappingFragment StoreEntitySet="tbl_designation">
+          <ScalarProperty Name="DeptGrade" ColumnName="DeptGrade" />
+          <ScalarProperty Name="holiday_allowance" ColumnName="holiday_allowance" />
+          <ScalarProperty Name="EmgGroup" ColumnName="EmgGroup" />
+          <ScalarProperty Name="AttnBonus" ColumnName="AttnBonus" />
+          <ScalarProperty Name="DesigNameBN" ColumnName="DesigNameBN" />
+          <ScalarProperty Name="DesigName" ColumnName="DesigName" />
+          <ScalarProperty Name="DesigCode" ColumnName="DesigCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_district">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_district">
+        <MappingFragment StoreEntitySet="tbl_district">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_division">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_division">
+        <MappingFragment StoreEntitySet="tbl_division">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_employee_group">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_employee_group">
+        <MappingFragment StoreEntitySet="tbl_employee_group">
+          <ScalarProperty Name="EmpGrpName" ColumnName="EmpGrpName" />
+          <ScalarProperty Name="EmpGrpCode" ColumnName="EmpGrpCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_file">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_file">
+        <MappingFragment StoreEntitySet="tbl_file">
+          <ScalarProperty Name="file_user_by" ColumnName="file_user_by" />
+          <ScalarProperty Name="file_ref_type" ColumnName="file_ref_type" />
+          <ScalarProperty Name="file_ref_id" ColumnName="file_ref_id" />
+          <ScalarProperty Name="file_url" ColumnName="file_url" />
+          <ScalarProperty Name="file_details" ColumnName="file_details" />
+          <ScalarProperty Name="file_type" ColumnName="file_type" />
+          <ScalarProperty Name="file_title" ColumnName="file_title" />
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_menu_category">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_menu_category">
+        <MappingFragment StoreEntitySet="tbl_menu_category">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_modules">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_modules">
+        <MappingFragment StoreEntitySet="tbl_modules">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_notification">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_notification">
+        <MappingFragment StoreEntitySet="tbl_notification">
+          <ScalarProperty Name="notf_user_by" ColumnName="notf_user_by" />
+          <ScalarProperty Name="notf_read_time" ColumnName="notf_read_time" />
+          <ScalarProperty Name="notf_time" ColumnName="notf_time" />
+          <ScalarProperty Name="notf_status" ColumnName="notf_status" />
+          <ScalarProperty Name="notf_message" ColumnName="notf_message" />
+          <ScalarProperty Name="notf_from" ColumnName="notf_from" />
+          <ScalarProperty Name="notf_to_email" ColumnName="notf_to_email" />
+          <ScalarProperty Name="notf_to" ColumnName="notf_to" />
+          <ScalarProperty Name="notf_title" ColumnName="notf_title" />
+          <ScalarProperty Name="notf_ref" ColumnName="notf_ref" />
+          <ScalarProperty Name="notf_type" ColumnName="notf_type" />
+          <ScalarProperty Name="notf_id" ColumnName="notf_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_phone">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_phone">
+        <MappingFragment StoreEntitySet="tbl_phone">
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneType" ColumnName="PhoneType" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_phone_types">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_phone_types">
+        <MappingFragment StoreEntitySet="tbl_phone_types">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoleActionMappings">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_RoleActionMappings">
+        <MappingFragment StoreEntitySet="tbl_RoleActionMappings">
+          <ScalarProperty Name="ItemOrder" ColumnName="ItemOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="ActionDisplayText" ColumnName="ActionDisplayText" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="ControllerDisplayText" ColumnName="ControllerDisplayText" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="AreaDisplayText" ColumnName="AreaDisplayText" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoleActions">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_RoleActions">
+        <MappingFragment StoreEntitySet="tbl_RoleActions">
+          <ScalarProperty Name="DefaultAction" ColumnName="DefaultAction" />
+          <ScalarProperty Name="Actions" ColumnName="Actions" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user_defaults">
+      <EntityTypeMapping TypeName="PMSDBMODEL.tbl_user_defaults">
+        <MappingFragment StoreEntitySet="tbl_user_defaults">
+          <ScalarProperty Name="ActionDefault" ColumnName="ActionDefault" />
+          <ScalarProperty Name="ControllDefault" ColumnName="ControllDefault" />
+          <ScalarProperty Name="ModuleDefault" ColumnName="ModuleDefault" />
+          <ScalarProperty Name="RoleDefault" ColumnName="RoleDefault" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="PMSDBMODEL.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

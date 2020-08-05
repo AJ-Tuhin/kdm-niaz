@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KDMDBMODEL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_liv_hol_data_holyday_marking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Holiday" Type="date" />
+    <Property Name="Month" Type="int" />
+    <Property Name="Year" Type="int" />
+    <Property Name="InputerID" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuthorizerID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+    <Property Name="InputStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_actions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Controller" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+    <Property Name="AddressType" Type="varchar" MaxLength="50" />
+    <Property Name="Division" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="StreetNo" Type="varchar" MaxLength="20" />
+    <Property Name="District" Type="varchar" MaxLength="100" />
+    <Property Name="PoliceStation" Type="varchar" MaxLength="100" />
+    <Property Name="PostOffice" Type="varchar" MaxLength="100" />
+    <Property Name="PostCode" Type="varchar" MaxLength="20" />
+    <Property Name="House#" Type="varchar" MaxLength="20" />
+    <Property Name="Country" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tbl_address_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="InOut" Type="bit" />
+    <Property Name="SwipeNo" Type="int" />
+    <Property Name="ProcessedStatus" Type="int" Nullable="false" />
+    <Property Name="AttnDate" Type="date" />
+    <Property Name="ProcessDate" Type="date" />
+  </EntityType>
+  <EntityType Name="tbl_attendance_devices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceId" Type="int" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="Port" Type="int" />
+    <Property Name="Location" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_children">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+    <Property Name="ChildName" Type="varchar" MaxLength="150" />
+    <Property Name="ChildAge" Type="int" />
+    <Property Name="ChildEducation" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_city">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_company">
+    <Key>
+      <PropertyRef Name="CompanyCode" />
+    </Key>
+    <Property Name="CompanyCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyAddress" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tbl_config">
+    <Key>
+      <PropertyRef Name="cnfg_id" />
+    </Key>
+    <Property Name="cnfg_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cnfg_app" Type="varchar" MaxLength="50" />
+    <Property Name="cnfg_notification_mail" Type="varchar" MaxLength="100" />
+    <Property Name="cnfg_notification_mail_pass" Type="varchar" MaxLength="100" />
+    <Property Name="cnfg_app_user_default_pass" Type="varchar" MaxLength="50" />
+    <Property Name="cnfg_init_area" Type="varchar" MaxLength="500" />
+    <Property Name="cnfg_init_controller" Type="varchar" MaxLength="500" />
+    <Property Name="cnfg_init_action" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tbl_contact_person">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+    <Property Name="Relation" Type="varchar" MaxLength="50" />
+    <Property Name="PersonName" Type="varchar" MaxLength="150" />
+    <Property Name="Address1" Type="varchar" MaxLength="1500" />
+    <Property Name="Address2" Type="varchar" MaxLength="150" />
+    <Property Name="PhoneNumber1" Type="varchar" MaxLength="20" />
+    <Property Name="PhoneNumber2" Type="varchar" MaxLength="20" />
+    <Property Name="EmailAddress1" Type="varchar" MaxLength="50" />
+    <Property Name="EmailAddress2" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_controllers">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Module" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_departments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeptName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DeptNameBN" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_designation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesigCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DesigName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DesigNameBN" Type="nvarchar" MaxLength="50" />
+    <Property Name="AttnBonus" Type="int" Nullable="false" />
+    <Property Name="EmgGroup" Type="nvarchar" MaxLength="50" />
+    <Property Name="holiday_allowance" Type="int" />
+    <Property Name="DeptGrade" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmpType" Type="nvarchar" MaxLength="50" />
+    <Property Name="TiifinAllowance" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_device_data_history">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="50" />
+    <Property Name="AttnDate" Type="datetime" />
+    <Property Name="mDate" Type="date" />
+    <Property Name="mTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeviceID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_district">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_division">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_education">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+    <Property Name="Exam" Type="varchar" MaxLength="20" />
+    <Property Name="InstituteName" Type="varchar" MaxLength="150" />
+    <Property Name="BoardName" Type="varchar" MaxLength="150" />
+    <Property Name="UniversityName" Type="varchar" MaxLength="150" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" />
+    <Property Name="PassYear" Type="varchar" MaxLength="4" />
+    <Property Name="Class" Type="varchar" MaxLength="1" />
+    <Property Name="CGPA" Type="varchar" MaxLength="5" />
+    <Property Name="MaxCGPA" Type="varchar" MaxLength="2" />
+    <Property Name="GroupName" Type="varchar" MaxLength="20" />
+    <Property Name="SubjectName" Type="varchar" MaxLength="50" />
+    <Property Name="Remarks" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_employee_group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpGrpCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmpGrpName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_employee_status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpJobStatusCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmpJobStatusName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_employees">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CardID" Type="nvarchar" MaxLength="50" />
+    <Property Name="FingerPrintID" Type="nvarchar" MaxLength="50" />
+    <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhotoID" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BanglaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FathersName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FactoryCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeptCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmpGrpCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DesigCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubSection" Type="nvarchar" MaxLength="50" />
+    <Property Name="Shift" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MothersName" Type="nvarchar" MaxLength="100" />
+    <Property Name="NID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dob" Type="date" />
+    <Property Name="JoiningDate" Type="date" Nullable="false" />
+    <Property Name="MaritialStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfMarriage" Type="datetime" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+    <Property Name="HasChild" Type="int" Nullable="false" />
+    <Property Name="ReferenceEmployeeID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReligionCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PFDeduct" Type="bit" Nullable="false" />
+    <Property Name="Service_length" Type="int" Nullable="false" />
+    <Property Name="BasicSalary" Type="int" Nullable="false" />
+    <Property Name="GrossSalary" Type="int" />
+    <Property Name="AnyAllowances" Type="int" Nullable="false" />
+    <Property Name="HourlyRate" Type="float" Nullable="false" />
+    <Property Name="PayTypeCode" Type="int" Nullable="false" />
+    <Property Name="EmpJobStatusCode" Type="int" Nullable="false" />
+    <Property Name="ConfirmDate" Type="date" />
+    <Property Name="Transport" Type="bit" />
+    <Property Name="RetirementDate" Type="date" />
+    <Property Name="OverTime" Type="bit" Nullable="false" />
+    <Property Name="InputterID" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuthorizerID" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="uniqueidentifier" />
+    <Property Name="LastIncYear" Type="int" Nullable="false" />
+    <Property Name="ResignDate" Type="date" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="FingerTaken" Type="bit" />
+    <Property Name="InputStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_factory">
+    <Key>
+      <PropertyRef Name="FactoryCode" />
+    </Key>
+    <Property Name="FactoryCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FactoryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_title" Type="varchar" MaxLength="100" />
+    <Property Name="file_type" Type="varchar" MaxLength="50" />
+    <Property Name="file_details" Type="varchar" MaxLength="500" />
+    <Property Name="file_url" Type="varchar" MaxLength="500" />
+    <Property Name="file_ref_id" Type="bigint" />
+    <Property Name="file_ref_type" Type="varchar" MaxLength="50" />
+    <Property Name="file_user_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_job_details">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="varchar" MaxLength="50" />
+    <Property Name="PromotionDate" Type="datetime" />
+    <Property Name="PreviousDesignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurrentDesignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="PreviousDesignationStartDate" Type="datetime" />
+    <Property Name="PreviousDesignationEndDate" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_job_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_joining_details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="EmployeeID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="JoiningDate" Type="datetime" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" />
+    <Property Name="BasicSalary" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Shift" Type="varchar" MaxLength="10" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="Section" Type="varchar" MaxLength="50" />
+    <Property Name="ProbitionPeriodStartDate" Type="datetime" />
+    <Property Name="ProbitionPeriodEndDate" Type="datetime" />
+    <Property Name="BankName" Type="varchar" MaxLength="50" />
+    <Property Name="BankAccountName" Type="varchar" MaxLength="100" />
+    <Property Name="Passport#" Type="varchar" MaxLength="50" />
+    <Property Name="TIN" Type="varchar" MaxLength="50" />
+    <Property Name="BankAccount#" Type="varchar" MaxLength="20" />
+    <Property Name="ResignationDate" Type="datetime" />
+    <Property Name="ResignationReason" Type="varchar" MaxLength="50" />
+    <Property Name="Remarks" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_members">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SponsorID" Type="bigint" />
+    <Property Name="SponsorName" Type="varchar" MaxLength="50" />
+    <Property Name="Position" Type="int" />
+    <Property Name="DistributorName" Type="varchar" MaxLength="50" />
+    <Property Name="FathersName" Type="varchar" MaxLength="50" />
+    <Property Name="MothersName" Type="varchar" MaxLength="50" />
+    <Property Name="PresentAddress" Type="varchar" MaxLength="100" />
+    <Property Name="PermanentAddress" Type="varchar" MaxLength="100" />
+    <Property Name="NID" Type="varchar" MaxLength="20" />
+    <Property Name="Phone1" Type="varchar" MaxLength="20" />
+    <Property Name="Phone2" Type="varchar" MaxLength="20" />
+    <Property Name="NomineeName" Type="varchar" MaxLength="50" />
+    <Property Name="RelationWithNominee" Type="varchar" MaxLength="50" />
+    <Property Name="NomineeNIDOrBirthCertificate" Type="varchar" MaxLength="50" />
+    <Property Name="PhotoID" Type="bigint" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_menu_category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuOrder" Type="int" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_modules">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_notification">
+    <Key>
+      <PropertyRef Name="notf_id" />
+    </Key>
+    <Property Name="notf_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="notf_type" Type="varchar" MaxLength="50" />
+    <Property Name="notf_ref" Type="bigint" />
+    <Property Name="notf_title" Type="varchar" MaxLength="100" />
+    <Property Name="notf_to" Type="varchar" MaxLength="50" />
+    <Property Name="notf_to_email" Type="varchar" MaxLength="500" />
+    <Property Name="notf_from" Type="varchar" MaxLength="50" />
+    <Property Name="notf_message" Type="varchar" MaxLength="500" />
+    <Property Name="notf_status" Type="varchar" MaxLength="50" />
+    <Property Name="notf_time" Type="datetime" />
+    <Property Name="notf_read_time" Type="datetime" />
+    <Property Name="notf_user_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_pay_type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayTypeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PayTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_phone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneType" Type="varchar" MaxLength="20" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tbl_phone_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_police_station">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_religions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReligionCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReligionName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActionMappings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="bigint" />
+    <Property Name="Parent" Type="bigint" />
+    <Property Name="Role" Type="varchar" MaxLength="50" />
+    <Property Name="Area" Type="varchar" MaxLength="100" />
+    <Property Name="AreaDisplayText" Type="text" />
+    <Property Name="Controller" Type="varchar" MaxLength="100" />
+    <Property Name="ControllerDisplayText" Type="text" />
+    <Property Name="Action" Type="varchar" MaxLength="100" />
+    <Property Name="ActionDisplayText" Type="text" />
+    <Property Name="Parameters" Type="text" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ItemOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActions">
+    <Key>
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Actions" Type="text" />
+    <Property Name="DefaultAction" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_sections">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_subsection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SecCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecDesc" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecBangla" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_training">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="varchar" MaxLength="50" />
+    <Property Name="TrainingTitle" Type="varchar" MaxLength="150" />
+    <Property Name="InstituteName" Type="varchar" MaxLength="150" />
+    <Property Name="TrainingCountry" Type="varchar" MaxLength="10" />
+    <Property Name="TrainingDuration" Type="varchar" MaxLength="10" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="Remarks" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_training_status">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_user_defaults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="RoleDefault" Type="varchar" MaxLength="100" />
+    <Property Name="ModuleDefault" Type="varchar" MaxLength="100" />
+    <Property Name="ControllDefault" Type="varchar" MaxLength="100" />
+    <Property Name="ActionDefault" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="KDMDBMODELStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hr_liv_hol_data_holyday_marking" EntityType="Self.hr_liv_hol_data_holyday_marking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_actions" EntityType="Self.tbl_actions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_address" EntityType="Self.tbl_address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_address_types" EntityType="Self.tbl_address_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_attendance" EntityType="Self.tbl_attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_attendance_devices" EntityType="Self.tbl_attendance_devices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_children" EntityType="Self.tbl_children" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_city" EntityType="Self.tbl_city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_company" EntityType="Self.tbl_company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_config" EntityType="Self.tbl_config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_contact_person" EntityType="Self.tbl_contact_person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_controllers" EntityType="Self.tbl_controllers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_departments" EntityType="Self.tbl_departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_designation" EntityType="Self.tbl_designation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_device_data_history" EntityType="Self.tbl_device_data_history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_district" EntityType="Self.tbl_district" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_division" EntityType="Self.tbl_division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_education" EntityType="Self.tbl_education" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_employee_group" EntityType="Self.tbl_employee_group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_employee_status" EntityType="Self.tbl_employee_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_employees" EntityType="Self.tbl_employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_factory" EntityType="Self.tbl_factory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_file" EntityType="Self.tbl_file" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_job_details" EntityType="Self.tbl_job_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_job_status" EntityType="Self.tbl_job_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_joining_details" EntityType="Self.tbl_joining_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_members" EntityType="Self.tbl_members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_menu_category" EntityType="Self.tbl_menu_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_modules" EntityType="Self.tbl_modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_notification" EntityType="Self.tbl_notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_pay_type" EntityType="Self.tbl_pay_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_phone" EntityType="Self.tbl_phone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_phone_types" EntityType="Self.tbl_phone_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_police_station" EntityType="Self.tbl_police_station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_religions" EntityType="Self.tbl_religions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RoleActionMappings" EntityType="Self.tbl_RoleActionMappings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RoleActions" EntityType="Self.tbl_RoleActions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sections" EntityType="Self.tbl_sections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_subsection" EntityType="Self.tbl_subsection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_training" EntityType="Self.tbl_training" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_training_status" EntityType="Self.tbl_training_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user_defaults" EntityType="Self.tbl_user_defaults" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

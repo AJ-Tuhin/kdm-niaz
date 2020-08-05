@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMSDBMODEL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PMSDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="PMSDBMODEL.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="PMSDBMODEL.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="PMSDBMODEL.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="PMSDBMODEL.AspNetUser" />
+    <EntitySet Name="tbl_actions" EntityType="PMSDBMODEL.tbl_actions" />
+    <EntitySet Name="tbl_address" EntityType="PMSDBMODEL.tbl_address" />
+    <EntitySet Name="tbl_address_types" EntityType="PMSDBMODEL.tbl_address_types" />
+    <EntitySet Name="tbl_config" EntityType="PMSDBMODEL.tbl_config" />
+    <EntitySet Name="tbl_contact_person" EntityType="PMSDBMODEL.tbl_contact_person" />
+    <EntitySet Name="tbl_controllers" EntityType="PMSDBMODEL.tbl_controllers" />
+    <EntitySet Name="tbl_country" EntityType="PMSDBMODEL.tbl_country" />
+    <EntitySet Name="tbl_departments" EntityType="PMSDBMODEL.tbl_departments" />
+    <EntitySet Name="tbl_designation" EntityType="PMSDBMODEL.tbl_designation" />
+    <EntitySet Name="tbl_district" EntityType="PMSDBMODEL.tbl_district" />
+    <EntitySet Name="tbl_division" EntityType="PMSDBMODEL.tbl_division" />
+    <EntitySet Name="tbl_employee_group" EntityType="PMSDBMODEL.tbl_employee_group" />
+    <EntitySet Name="tbl_file" EntityType="PMSDBMODEL.tbl_file" />
+    <EntitySet Name="tbl_menu_category" EntityType="PMSDBMODEL.tbl_menu_category" />
+    <EntitySet Name="tbl_modules" EntityType="PMSDBMODEL.tbl_modules" />
+    <EntitySet Name="tbl_notification" EntityType="PMSDBMODEL.tbl_notification" />
+    <EntitySet Name="tbl_phone" EntityType="PMSDBMODEL.tbl_phone" />
+    <EntitySet Name="tbl_phone_types" EntityType="PMSDBMODEL.tbl_phone_types" />
+    <EntitySet Name="tbl_RoleActionMappings" EntityType="PMSDBMODEL.tbl_RoleActionMappings" />
+    <EntitySet Name="tbl_RoleActions" EntityType="PMSDBMODEL.tbl_RoleActions" />
+    <EntitySet Name="tbl_user_defaults" EntityType="PMSDBMODEL.tbl_user_defaults" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="PMSDBMODEL.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="PMSDBMODEL.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="PMSDBMODEL.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="PMSDBMODEL.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="PMSDBMODEL.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="PMSDBMODEL.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="MappedID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="PMSDBMODEL.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="PMSDBMODEL.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="PMSDBMODEL.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="tbl_actions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StreetNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PoliceStation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="House_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_address_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_config">
+    <Key>
+      <PropertyRef Name="cnfg_id" />
+    </Key>
+    <Property Name="cnfg_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cnfg_app" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_notification_mail_pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_app_user_default_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_area" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_controller" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="cnfg_init_action" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_contact_person">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_controllers">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_departments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeptName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DeptNameBN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_designation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesigCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesigName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesigNameBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AttnBonus" Type="Int32" Nullable="false" />
+    <Property Name="EmgGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="holiday_allowance" Type="Int32" />
+    <Property Name="DeptGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_district">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_division">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_employee_group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpGrpCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmpGrpName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="file_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_details" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="file_ref_id" Type="Int64" />
+    <Property Name="file_ref_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="file_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_menu_category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_modules">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_notification">
+    <Key>
+      <PropertyRef Name="notf_id" />
+    </Key>
+    <Property Name="notf_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="notf_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_ref" Type="Int64" />
+    <Property Name="notf_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_to_email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="notf_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notf_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_read_time" Type="DateTime" Precision="3" />
+    <Property Name="notf_user_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_phone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_phone_types">
+    <Key>
+      <PropertyRef Name="Value" />
+    </Key>
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActionMappings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="Int64" />
+    <Property Name="Parent" Type="Int64" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AreaDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllerDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDisplayText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ItemOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_RoleActions">
+    <Key>
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Actions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultAction" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_user_defaults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RoleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDefault" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="PMSDBMODEL.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PMSDBMODEL.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="PMSDBMODEL.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PMSDBMODEL.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="PMSDBMODEL.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="PMSDBMODEL.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ERPDBModelStoreContainer" CdmEntityContainer="ERPDB">
+    <EntitySetMapping Name="tbl_file">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_file">
+        <MappingFragment StoreEntitySet="tbl_file">
+          <ScalarProperty Name="file_user_by" ColumnName="file_user_by" />
+          <ScalarProperty Name="file_ref_type" ColumnName="file_ref_type" />
+          <ScalarProperty Name="file_ref_id" ColumnName="file_ref_id" />
+          <ScalarProperty Name="file_url" ColumnName="file_url" />
+          <ScalarProperty Name="file_details" ColumnName="file_details" />
+          <ScalarProperty Name="file_type" ColumnName="file_type" />
+          <ScalarProperty Name="file_title" ColumnName="file_title" />
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_notification">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_notification">
+        <MappingFragment StoreEntitySet="tbl_notification">
+          <ScalarProperty Name="notf_user_by" ColumnName="notf_user_by" />
+          <ScalarProperty Name="notf_read_time" ColumnName="notf_read_time" />
+          <ScalarProperty Name="notf_time" ColumnName="notf_time" />
+          <ScalarProperty Name="notf_status" ColumnName="notf_status" />
+          <ScalarProperty Name="notf_message" ColumnName="notf_message" />
+          <ScalarProperty Name="notf_from" ColumnName="notf_from" />
+          <ScalarProperty Name="notf_to_email" ColumnName="notf_to_email" />
+          <ScalarProperty Name="notf_to" ColumnName="notf_to" />
+          <ScalarProperty Name="notf_title" ColumnName="notf_title" />
+          <ScalarProperty Name="notf_ref" ColumnName="notf_ref" />
+          <ScalarProperty Name="notf_type" ColumnName="notf_type" />
+          <ScalarProperty Name="notf_id" ColumnName="notf_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_config">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_config">
+        <MappingFragment StoreEntitySet="tbl_config">
+          <ScalarProperty Name="cnfg_init_action" ColumnName="cnfg_init_action" />
+          <ScalarProperty Name="cnfg_init_controller" ColumnName="cnfg_init_controller" />
+          <ScalarProperty Name="cnfg_init_area" ColumnName="cnfg_init_area" />
+          <ScalarProperty Name="cnfg_app_user_default_pass" ColumnName="cnfg_app_user_default_pass" />
+          <ScalarProperty Name="cnfg_notification_mail_pass" ColumnName="cnfg_notification_mail_pass" />
+          <ScalarProperty Name="cnfg_notification_mail" ColumnName="cnfg_notification_mail" />
+          <ScalarProperty Name="cnfg_app" ColumnName="cnfg_app" />
+          <ScalarProperty Name="cnfg_id" ColumnName="cnfg_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoleActions">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_RoleActions">
+        <MappingFragment StoreEntitySet="tbl_RoleActions">
+          <ScalarProperty Name="DefaultAction" ColumnName="DefaultAction" />
+          <ScalarProperty Name="Actions" ColumnName="Actions" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_employee_status">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_employee_status">
+        <MappingFragment StoreEntitySet="tbl_employee_status">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_controllers">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_controllers">
+        <MappingFragment StoreEntitySet="tbl_controllers">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_modules">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_modules">
+        <MappingFragment StoreEntitySet="tbl_modules">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_actions">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_actions">
+        <MappingFragment StoreEntitySet="tbl_actions">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user_defaults">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_user_defaults">
+        <MappingFragment StoreEntitySet="tbl_user_defaults">
+          <ScalarProperty Name="ActionDefault" ColumnName="ActionDefault" />
+          <ScalarProperty Name="ControllDefault" ColumnName="ControllDefault" />
+          <ScalarProperty Name="ModuleDefault" ColumnName="ModuleDefault" />
+          <ScalarProperty Name="RoleDefault" ColumnName="RoleDefault" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_city">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_city">
+        <MappingFragment StoreEntitySet="tbl_city">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_country">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_country">
+        <MappingFragment StoreEntitySet="tbl_country">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_district">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_district">
+        <MappingFragment StoreEntitySet="tbl_district">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_division">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_division">
+        <MappingFragment StoreEntitySet="tbl_division">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_police_station">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_police_station">
+        <MappingFragment StoreEntitySet="tbl_police_station">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_address_types">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_address_types">
+        <MappingFragment StoreEntitySet="tbl_address_types">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_phone_types">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_phone_types">
+        <MappingFragment StoreEntitySet="tbl_phone_types">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_designation">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_designation">
+        <MappingFragment StoreEntitySet="tbl_designation">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_departments">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_departments">
+        <MappingFragment StoreEntitySet="tbl_departments">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_sections">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_sections">
+        <MappingFragment StoreEntitySet="tbl_sections">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_religions">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_religions">
+        <MappingFragment StoreEntitySet="tbl_religions">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_menu_category">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_menu_category">
+        <MappingFragment StoreEntitySet="tbl_menu_category">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoleActionMappings">
+      <EntityTypeMapping TypeName="ERPDBModel.tbl_RoleActionMappings">
+        <MappingFragment StoreEntitySet="tbl_RoleActionMappings">
+          <ScalarProperty Name="ItemOrder" ColumnName="ItemOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="ActionDisplayText" ColumnName="ActionDisplayText" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="ControllerDisplayText" ColumnName="ControllerDisplayText" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="AreaDisplayText" ColumnName="AreaDisplayText" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
