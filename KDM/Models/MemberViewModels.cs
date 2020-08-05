@@ -27,6 +27,8 @@ namespace KDM.Models
         public DateTime CreateDate { get; set; }
         public Int64 PhotoID { get; set; }
         public HttpPostedFileBase Photo { get; set; }
+
+
     }
     
 }
